@@ -8,6 +8,6 @@ class ConditionController extends Controller
 {
     public function top()
     {
-        return 'ユーザートップページです';
+        return view('top');
     }
 }
