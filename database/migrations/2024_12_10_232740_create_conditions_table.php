@@ -13,14 +13,17 @@ return new class extends Migration
     {
         Schema::create('conditions', function (Blueprint $table) {
             $table->id();
-            $table->date('date');
-            $table->time('sleep_time');
-            $table->time('wakeup_time');
-            $table->string('exercise');
-            $table->string('breakfast');
-            $table->string('lunch');
-            $table->string('dinner');
-            $table->string('comment');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->date('date')->comment('記録対象日')->nullable(false);
+            $table->foreignId('sign_id')->constrained('signs')->onDelete('cascade');
+            $table->foreignId('weather_id')->constrained('weathers')->onDelete('cascade');
+            $table->dateTime('sleep_time')->comment('就寝時刻');
+            $table->dateTime('wakeup_time')->comment('起床時刻');
+            $table->string('exercise')->comment('運動');
+            $table->string('breakfast')->comment('朝食');
+            $table->string('lunch')->comment('昼食');
+            $table->string('dinner')->comment('夕食');
+            $table->text('comment')->comment('詳細のコメント')->nullable(false);
             $table->timestamps();
         });
     }
