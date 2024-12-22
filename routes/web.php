@@ -20,5 +20,7 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 
-//ユーザーログイン後のトップページを表示
-Route::get('/user/top', [ConditionController::class, 'top'])->name('user.top');
+Route::middleware('auth')->group(function(){
+    //ユーザーログイン後のトップページを表示
+    Route::get('/user/top', [ConditionController::class, 'top'])->name('user.top');
+});
