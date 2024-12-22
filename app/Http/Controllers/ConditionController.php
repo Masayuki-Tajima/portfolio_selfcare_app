@@ -8,6 +8,6 @@ class ConditionController extends Controller
 {
     public function top()
     {
-        return view('top');
+        return view('users/top');
     }
 }
