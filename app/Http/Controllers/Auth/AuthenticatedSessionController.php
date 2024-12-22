@@ -29,7 +29,7 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         //ユーザーログイン後のトップページにリダイレクト
-        return redirect()->intended(route('user.top', absolute: false));
+        return redirect()->intended(route('users.top', absolute: false));
     }
 
     /**
