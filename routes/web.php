@@ -23,4 +23,7 @@ require __DIR__ . '/auth.php';
 Route::middleware('auth')->group(function(){
     //ユーザーログイン後のトップページを表示
     Route::get('/users/top', [ConditionController::class, 'top'])->name('users.top');
+
+    //体調一覧のページを表示
+    Route::get('/users/{user_id}/conditions', [ConditionController::class, 'index'])->name('conditions.index');
 });
