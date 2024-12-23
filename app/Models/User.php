@@ -13,13 +13,6 @@ class User extends Authenticatable
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
-    //一人のユーザーは複数の体調データを持つ
-    public function conditions()
-    {
-        return $this->hasMany(Condition::class);
-    }
-
-
     /**
      * The attributes that are mass assignable.
      *
@@ -53,4 +46,11 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    //一人のユーザーは複数の体調データを持つ
+    public function conditions()
+    {
+        return $this->hasMany(Condition::class);
+    }
+
 }
