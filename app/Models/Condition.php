@@ -12,12 +12,14 @@ class Condition extends Model
     use HasFactory;
 
     //一つの体調データは1つの天気データをもつ
-    public function weather(){
+    public function weather()
+    {
         return $this->hasOne(Weather::class);
     }
 
     //一つの体調データは1人のユーザーに紐づく
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
