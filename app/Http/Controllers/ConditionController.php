@@ -17,7 +17,7 @@ class ConditionController extends Controller
     public function index($user_id)
     {
         // $conditions = Auth::user()->conditions->orderBy('date', 'desc')->get();
-        $conditions = Condition::find($user_id);
+        $conditions = Condition::findOrFail($user_id);
         // dd($conditions);
 
         return view('conditions.index', compact('conditions'));
