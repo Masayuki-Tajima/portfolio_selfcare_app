@@ -66,9 +66,9 @@
                             <td class="px-4 py-3">良好サイン</td>
                             <td class="px-4 py-3">注意サイン</td>
                             <td class="px-4 py-3">悪化サイン</td>
-                            <td class="px-4 py-3">天気</td>
-                            <td class="px-4 py-3">気温</td>
-                            <td class="px-4 py-3">湿度</td>
+                            <td class="px-4 py-3">{{ $condition->weather->weather }}</td>
+                            <td class="px-4 py-3">{{ $condition->weather->temperature }}</td>
+                            <td class="px-4 py-3">{{ $condition->weather->humidity }}</td>
                             <td class="px-4 py-3">{{ $condition->sleep_time }}</td>
                             <td class="px-4 py-3">{{ $condition->wakeup_time }}</td>
                             <td class="px-4 py-3">睡眠時間</td>

@@ -50,7 +50,7 @@ class User extends Authenticatable
     //一人のユーザーは複数の体調データを持つ
     public function conditions()
     {
-        return $this->hasMany(Condition::class);
+        return $this->hasMany(Condition::class)->with('weather');
     }
 
 }
