@@ -10,6 +10,8 @@ class Weather extends Model
 {
     use HasFactory;
 
+     protected $table = 'weathers';
+
     //一つの天気データは1つの体調データに紐づく
     public function condition()
     {
