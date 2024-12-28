@@ -6,18 +6,16 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class WeatherSeeder extends Seeder
+class ConditionSignSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        DB::table('weathers')->insert([
-            'weather' => '快晴',
+        DB::table('condition_sign')->insert([
             'condition_id' => 1,
-            'temperature' => 12,
-            'humidity' => 50,
+            'sign_id' => 1,
             'created_at' => '2024-12-23 00:00:00',
             'updated_at' => '2024-12-23 00:00:00',
         ]);
