@@ -60,22 +60,23 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($conditions as $condition)
                         <tr>
-                            <td class="px-4 py-3">{{ $conditions->date }}</td>
+                            <td class="px-4 py-3">{{ $condition->date }}</td>
                             <td class="px-4 py-3">良好サイン</td>
                             <td class="px-4 py-3">注意サイン</td>
                             <td class="px-4 py-3">悪化サイン</td>
-                            <td class="px-4 py-3">天気</td>
-                            <td class="px-4 py-3">気温</td>
-                            <td class="px-4 py-3">湿度</td>
-                            <td class="px-4 py-3">{{ $conditions->sleep_time }}</td>
-                            <td class="px-4 py-3">{{ $conditions->wakeup_time }}</td>
+                            <td class="px-4 py-3">{{ $condition->weather->weather }}</td>
+                            <td class="px-4 py-3">{{ $condition->weather->temperature }}</td>
+                            <td class="px-4 py-3">{{ $condition->weather->humidity }}</td>
+                            <td class="px-4 py-3">{{ $condition->sleep_time }}</td>
+                            <td class="px-4 py-3">{{ $condition->wakeup_time }}</td>
                             <td class="px-4 py-3">睡眠時間</td>
-                            <td class="px-4 py-3">{{ $conditions->exercise }}</td>
-                            <td class="px-4 py-3">{{ $conditions->breakfast }}</td>
-                            <td class="px-4 py-3">{{ $conditions->lunch }}</td>
-                            <td class="px-4 py-3">{{ $conditions->dinner }}</td>
-                            <td class="px-4 py-3">{{ $conditions->comment }}</td>
+                            <td class="px-4 py-3">{{ $condition->exercise }}</td>
+                            <td class="px-4 py-3">{{ $condition->breakfast }}</td>
+                            <td class="px-4 py-3">{{ $condition->lunch }}</td>
+                            <td class="px-4 py-3">{{ $condition->dinner }}</td>
+                            <td class="px-4 py-3">{{ $condition->comment }}</td>
                             <td>
                                 <form action="" method="POST">
                                     @csrf
@@ -89,6 +90,7 @@
                                 </form>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
