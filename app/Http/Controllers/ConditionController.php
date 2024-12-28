@@ -6,6 +6,7 @@ use App\Models\Condition;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Weather;
 
 class ConditionController extends Controller
 {
@@ -17,9 +18,13 @@ class ConditionController extends Controller
     public function index($user_id)
     {
         // $conditions = Auth::user()->conditions->orderBy('date', 'desc')->get();
-        $conditions = Condition::findOrFail($user_id);
-        // dd($conditions);
+        $conditions = Auth::user()->conditions;
+        // $conditions = Condition::findOrFail($user_id);
+        // dd(Condition::with('weather')->findOrFail($user_id));
+        // dd(Auth::user()->conditions);
 
-        return view('conditions.index', compact('conditions'));
+        return view('conditions.index', [
+            'conditions' => $conditions,
+        ]);
     }
 }
