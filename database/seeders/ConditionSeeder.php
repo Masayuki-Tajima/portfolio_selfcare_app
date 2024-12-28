@@ -16,8 +16,6 @@ class ConditionSeeder extends Seeder
         DB::table('conditions')->insert([
             'user_id' => 1,
             'date' => '2024-12-23',
-            'sign_id' => 1,
-            'weather_id' => 1,
             'sleep_time' => '2024-12-22 00:30:00',
             'wakeup_time' => '2024-12-23 07:30:00',
             'exercise' => '腹筋10回',
