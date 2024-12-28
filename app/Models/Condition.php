@@ -28,7 +28,7 @@ class Condition extends Model
     //一つの体調データは複数のサインをもつ
     public function signs():BelongsToMany
     {
-        return $this->belongsToMany(Sign::class)->withTimestamps();
+        return $this->belongsToMany(Sign::class, 'condition_sign')->withTimestamps();
     }
 
 }
