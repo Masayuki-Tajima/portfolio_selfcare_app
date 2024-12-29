@@ -36,4 +36,8 @@ Route::middleware('auth')->group(function(){
 
     //体調サイン一覧のページを表示
     Route::get('/users/{user_id}/signs', [SignController::class, 'index'])->name('signs.index');
+
+    //体調サインの新規登録ページを表示
+    Route::get('/users/{user_id}/signs/add', [SignController::class, 'add'])->name('signs.add');
+
 });
