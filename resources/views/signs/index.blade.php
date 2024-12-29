@@ -20,8 +20,10 @@
                 <h2>良好サイン</h2>
                 <ul>
                     @foreach ($signs as $sign)
-                        <li class="px-4 py-3">{{ $sign->sign_type == 0 ? $sign->sign : '無' }}<input name="plan"
-                                type="radio"></li>
+                        @if ($sign->sign_type == 0)
+                            <li class="px-4 py-3">{{ $sign->sign_type == 0 ? $sign->sign : '無' }}<input name="plan"
+                                    type="radio"></li>
+                        @endif
                     @endforeach
                 </ul>
                 {{-- <table class="whitespace-no-wrap w-full table-auto text-left">
@@ -49,8 +51,10 @@
                 <h2>注意サイン</h2>
                 <ul>
                     @foreach ($signs as $sign)
-                        <li class="px-4 py-3">{{ $sign->sign_type == 1 ? $sign->sign : '無' }}<input name="plan"
-                                type="radio"></li>
+                        @if ($sign->sign_type == 1)
+                            <li class="px-4 py-3">{{ $sign->sign_type == 1 ? $sign->sign : '無' }}<input name="plan"
+                                    type="radio"></li>
+                        @endif
                     @endforeach
                 </ul>
 
@@ -58,8 +62,10 @@
                 <h2>悪化サイン</h2>
                 <ul>
                     @foreach ($signs as $sign)
-                        <li class="px-4 py-3">{{ $sign->sign_type == 2 ? $sign->sign : '無' }}<input name="plan"
-                                type="radio"></li>
+                        @if ($sign->sign_type == 2)
+                            <li class="px-4 py-3">{{ $sign->sign_type == 2 ? $sign->sign : '無' }}<input name="plan"
+                                    type="radio"></li>
+                        @endif
                     @endforeach
                 </ul>
             </div>
