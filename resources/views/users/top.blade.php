@@ -26,7 +26,7 @@
                                 <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
                             </svg>
                         </div>
-                        <a href="#" class="block text-lg text-gray-900 font-medium title-font mb-2">過去の記録一覧</a>
+                        <a href="{{ route('conditions.index', ['user_id' => Auth::id()]) }}" class="block text-lg text-gray-900 font-medium title-font mb-2">過去の記録一覧</a>
                         {{-- <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p> --}}
                     </div>
                 </div>
