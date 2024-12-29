@@ -7,7 +7,7 @@
                     crucifix neutra tilde lyft biodiesel artisan direct trade mumblecore 3 wolf moon twee</p> --}}
             </div>
             {{-- 新規登録ボタン --}}
-            <button type="button" onclick="location.href='{{ route('signs.add', ['user_id' => Auth::id()]) }}' ">体調を新規登録</button>
+            <button type="button" onclick="location.href='{{ route('signs.create', ['user_id' => Auth::id()]) }}' ">体調を新規登録</button>
             <div class="mx-auto w-full overflow-auto lg:w-2/3">
                 {{-- 良好サイン --}}
                 <table class="whitespace-no-wrap w-full table-auto text-left">
