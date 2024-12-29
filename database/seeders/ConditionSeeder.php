@@ -18,6 +18,7 @@ class ConditionSeeder extends Seeder
             'date' => '2024-12-23',
             'sleep_time' => '2024-12-22 00:30:00',
             'wakeup_time' => '2024-12-23 07:30:00',
+            'sleep_duration' => '07:00:00',
             'exercise' => '腹筋10回',
             'breakfast' => 'ご飯、味噌汁、玉子焼き',
             'lunch' => '焼きそば',

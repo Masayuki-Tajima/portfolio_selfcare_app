@@ -27,7 +27,7 @@ class ConditionController extends Controller
 
         return view('conditions.index', [
             'conditions' => $conditions,
-            'signs' => $signs
+            'signs' => $signs,
         ]);
     }
 }

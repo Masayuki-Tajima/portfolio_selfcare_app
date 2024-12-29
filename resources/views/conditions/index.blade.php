@@ -73,7 +73,7 @@
                                 <td class="px-4 py-3">{{ $condition->weather->humidity }}</td>
                                 <td class="px-4 py-3">{{ $condition->sleep_time }}</td>
                                 <td class="px-4 py-3">{{ $condition->wakeup_time }}</td>
-                                <td class="px-4 py-3">睡眠時間</td>
+                                <td class="px-4 py-3">{{ $condition->sleep_duration }}</td>
                                 <td class="px-4 py-3">{{ $condition->exercise }}</td>
                                 <td class="px-4 py-3">{{ $condition->breakfast }}</td>
                                 <td class="px-4 py-3">{{ $condition->lunch }}</td>
