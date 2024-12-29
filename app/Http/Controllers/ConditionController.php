@@ -19,12 +19,15 @@ class ConditionController extends Controller
     {
         // $conditions = Auth::user()->conditions->orderBy('date', 'desc')->get();
         $conditions = Auth::user()->conditions;
+        $signs = Condition::find($user_id)->signs;
         // $conditions = Condition::findOrFail($user_id);
         // dd(Condition::with('weather')->findOrFail($user_id));
         // dd(Auth::user()->conditions);
+        // dd(Condition::find($user_id)->signs);
 
         return view('conditions.index', [
             'conditions' => $conditions,
+            'signs' => $signs,
         ]);
     }
 }
