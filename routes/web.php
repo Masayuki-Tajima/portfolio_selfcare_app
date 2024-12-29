@@ -40,4 +40,7 @@ Route::middleware('auth')->group(function(){
     //体調サインの新規登録ページを表示
     Route::get('/users/{user_id}/signs/create', [SignController::class, 'create'])->name('signs.create');
 
+    //体調サインの新規登録機能
+    Route::post('/users/{user_id}/signs', [SignController::class, 'store'])->name('signs.store');
+
 });
