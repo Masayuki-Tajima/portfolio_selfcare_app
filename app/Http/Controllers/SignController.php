@@ -14,4 +14,8 @@ class SignController extends Controller
             'signs' => $signs
         ]);
     }
+
+    public function add(){
+        return view('signs.add');
+    }
 }
