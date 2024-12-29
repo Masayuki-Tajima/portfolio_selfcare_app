@@ -61,35 +61,37 @@
                     </thead>
                     <tbody>
                         @foreach ($conditions as $condition)
-                        <tr>
-                            <td class="px-4 py-3">{{ $condition->date }}</td>
-                            <td class="px-4 py-3">良好サイン</td>
-                            <td class="px-4 py-3">注意サイン</td>
-                            <td class="px-4 py-3">悪化サイン</td>
-                            <td class="px-4 py-3">{{ $condition->weather->weather }}</td>
-                            <td class="px-4 py-3">{{ $condition->weather->temperature }}</td>
-                            <td class="px-4 py-3">{{ $condition->weather->humidity }}</td>
-                            <td class="px-4 py-3">{{ $condition->sleep_time }}</td>
-                            <td class="px-4 py-3">{{ $condition->wakeup_time }}</td>
-                            <td class="px-4 py-3">睡眠時間</td>
-                            <td class="px-4 py-3">{{ $condition->exercise }}</td>
-                            <td class="px-4 py-3">{{ $condition->breakfast }}</td>
-                            <td class="px-4 py-3">{{ $condition->lunch }}</td>
-                            <td class="px-4 py-3">{{ $condition->dinner }}</td>
-                            <td class="px-4 py-3">{{ $condition->comment }}</td>
-                            <td>
-                                <form action="" method="POST">
-                                    @csrf
-                                    <input type="submit" value="編集">
-                                </form>
-                            </td>
-                            <td>
-                                <form action="" method="POST">
-                                    @csrf
-                                    <input type="submit" value="削除">
-                                </form>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td class="px-4 py-3">{{ $condition->date }}</td>
+                                @foreach ($signs as $sign)
+                                    <td class="px-4 py-3">{{ $sign->sign_type == 0 ? $sign->sign : "無" }}</td>
+                                    <td class="px-4 py-3">{{ $sign->sign_type == 1 ? $sign->sign : "無" }}</td>
+                                    <td class="px-4 py-3">{{ $sign->sign_type == 2 ? $sign->sign : "無" }}</td>
+                                @endforeach
+                                <td class="px-4 py-3">{{ $condition->weather->weather }}</td>
+                                <td class="px-4 py-3">{{ $condition->weather->temperature }}</td>
+                                <td class="px-4 py-3">{{ $condition->weather->humidity }}</td>
+                                <td class="px-4 py-3">{{ $condition->sleep_time }}</td>
+                                <td class="px-4 py-3">{{ $condition->wakeup_time }}</td>
+                                <td class="px-4 py-3">{{ $condition->sleep_duration }}</td>
+                                <td class="px-4 py-3">{{ $condition->exercise }}</td>
+                                <td class="px-4 py-3">{{ $condition->breakfast }}</td>
+                                <td class="px-4 py-3">{{ $condition->lunch }}</td>
+                                <td class="px-4 py-3">{{ $condition->dinner }}</td>
+                                <td class="px-4 py-3">{{ $condition->comment }}</td>
+                                <td>
+                                    <form action="" method="POST">
+                                        @csrf
+                                        <input type="submit" value="編集">
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="" method="POST">
+                                        @csrf
+                                        <input type="submit" value="削除">
+                                    </form>
+                                </td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>
