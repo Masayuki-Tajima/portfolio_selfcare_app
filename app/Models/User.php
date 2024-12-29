@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Models\Condition;
+use App\Models\Sign;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -51,6 +52,12 @@ class User extends Authenticatable
     public function conditions()
     {
         return $this->hasMany(Condition::class)->with('weather');
+    }
+
+    //一人のユーザーは複数の体調サインを持つ
+    public function signs()
+    {
+        return $this->hasMany(Sign::class);
     }
 
 }

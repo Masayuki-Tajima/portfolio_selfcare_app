@@ -38,7 +38,7 @@
                                 <circle cx="12" cy="7" r="4"></circle>
                             </svg>
                         </div>
-                        <a href="#" class="block text-lg text-gray-900 font-medium title-font mb-2">設定</a>
+                        <a href="{{route('signs.index', ['user_id' => Auth::id()])}}" class="block text-lg text-gray-900 font-medium title-font mb-2">設定</a>
                         {{-- <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p> --}}
                     </div>
                 </div>
