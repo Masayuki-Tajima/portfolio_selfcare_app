@@ -26,4 +26,7 @@ Route::middleware('auth')->group(function(){
 
     //体調一覧のページを表示
     Route::get('/users/{user_id}/conditions', [ConditionController::class, 'index'])->name('conditions.index');
+
+    //体調の新規登録ページを表示
+    Route::get('/users/{user_id}/conditions/add', [ConditionController::class, 'add'])->name('conditions.add');
 });
