@@ -4,6 +4,7 @@
             <div class="mb-20 flex w-full flex-col text-center">
                 <h1 class="title-font mb-2 text-3xl font-medium text-gray-900 sm:text-4xl">過去の体調の記録</h1>
             </div>
+            <a href="{{ route('conditions.add', ['user_id' => Auth::id()]) }}" class="block text-lg text-gray-900 font-medium title-font mb-2">体調を新規登録</a>
             <div class="mx-auto w-full overflow-auto lg:w-2/3">
                 <table class="whitespace-no-wrap w-full table-auto text-left">
                     <thead>
