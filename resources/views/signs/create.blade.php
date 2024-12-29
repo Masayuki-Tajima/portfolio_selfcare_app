@@ -6,7 +6,8 @@
                 {{-- <p class="mx-auto text-base leading-relaxed lg:w-2/3">Whatever cardigan tote bag tumblr hexagon brooklyn
                     asymmetrical gentrify.</p> --}}
             </div>
-            <form action="" method="POST">
+            <form action="{{ route('signs.store', ['user_id' => Auth::id()]) }}" method="POST">
+                @csrf
                 <div class="mx-auto md:w-2/3 lg:w-1/2">
                     <div class="-m-2 flex flex-wrap">
                         <div class="w-1/2 p-2">
