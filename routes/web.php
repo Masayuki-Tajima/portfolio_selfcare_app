@@ -31,7 +31,8 @@ Route::middleware('auth')->group(function(){
     //体調の新規登録ページを表示
     Route::get('/users/{user_id}/conditions/create', [ConditionController::class, 'create'])->name('conditions.create');
 
-
+    //体調の新規登録機能
+    Route::post('/users/{user_id}/conditions', [ConditionController::class, 'store'])->name('conditions.store');
 
 
     //体調サイン一覧のページを表示
