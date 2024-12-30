@@ -20,11 +20,9 @@ class ConditionController extends Controller
     public function index($user_id)
     {
         $conditions = Auth::user()->conditions;
-        $signs = Condition::findOrFail($user_id)->signs;
-        // $conditions = Condition::findOrFail($user_id);
-        // dd(Condition::with('weather')->findOrFail($user_id));
-        // dd(Auth::user()->conditions);
-        // dd(Condition::find($user_id)->signs);
+        $signs = Auth::user()->signs->where('user_id', '=', $user_id);
+        // $signs = Condition::findOrFail($user_id)->signs;
+        // dd(Auth::user()->signs->where('user_id', '=', $user_id));
 
         return view('conditions.index', [
             'conditions' => $conditions,
