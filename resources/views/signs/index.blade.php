@@ -15,7 +15,7 @@
             {{-- 新規登録ボタン --}}
             <button type="button"
                 class="mx-auto flex rounded border-0 bg-indigo-500 px-8 py-2 text-lg text-white hover:bg-indigo-600 focus:outline-none"
-                onclick="location.href='{{ route('signs.create', ['user_id' => Auth::id()]) }}' ">体調を新規登録</button>
+                onclick="location.href='{{ route('signs.create', ['user_id' => Auth::id()]) }}' ">体調サインを新規登録</button>
             <div class="mx-auto w-full overflow-auto lg:w-2/3">
                 <h2 class="text-2xl">良好サイン</h2>
                 <ul>
