@@ -20,15 +20,10 @@ class ConditionController extends Controller
     //体調一覧の表示
     public function index($user_id)
     {
-        $conditions = Auth::user()->conditions;
-        // $signs = Auth::user()->signs->where('user_id', '=', $user_id);
-        // dd(Condition::findOrFail($user_id)->signs);
-        $signs = Condition::findOrFail($user_id)->signs;
-        dd(Condition::where('user_id', '=', $user_id)->with('signs')->get());
+        $conditions = Condition::where('user_id', '=', $user_id)->with('signs')->get();
 
         return view('conditions.index', [
             'conditions' => $conditions,
-            'signs' => $signs,
         ]);
     }
 
@@ -66,6 +61,7 @@ class ConditionController extends Controller
 
         //weatherテーブルへの値の挿入
         $weather = new Weather();
+        $weather->condition_id = $condition->id;
         $weather->weather = '曇り';
         $weather->temperature = 26;
         $weather->humidity = 60;
