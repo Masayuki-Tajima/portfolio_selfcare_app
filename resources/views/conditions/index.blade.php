@@ -79,7 +79,7 @@
                                 <td class="px-4 py-3">{{ $condition->date }}</td>
                                 <td>
                                     <ul>
-                                        @foreach ($signs as $sign)
+                                        @foreach ($condition->signs as $sign)
                                             @if ($sign->sign_type == 0)
                                                 <li>{{ $sign->sign }}</li>
                                             @endif
@@ -88,7 +88,7 @@
                                 </td>
                                 <td>
                                     <ul>
-                                        @foreach ($signs as $sign)
+                                        @foreach ($condition->signs as $sign)
                                             @if ($sign->sign_type == 1)
                                                 <li>{{ $sign->sign }}</li>
                                             @endif
@@ -97,7 +97,7 @@
                                 </td>
                                 <td>
                                     <ul>
-                                        @foreach ($signs as $sign)
+                                        @foreach ($condition->signs as $sign)
                                             @if ($sign->sign_type == 2)
                                                 <li>{{ $sign->sign }}</li>
                                             @endif
