@@ -4,59 +4,72 @@
             <div class="mb-20 flex w-full flex-col text-center">
                 <h1 class="title-font mb-2 text-3xl font-medium text-gray-900 sm:text-4xl">過去の体調の記録</h1>
             </div>
-            <a href="{{ route('conditions.add', ['user_id' => Auth::id()]) }}" class="block text-lg text-gray-900 font-medium title-font mb-2">体調を新規登録</a>
+            <button type="button"
+                class="mx-auto flex rounded border-0 bg-indigo-500 px-8 py-2 text-lg text-white hover:bg-indigo-600 focus:outline-none"
+                onclick="location.href='{{ route('conditions.create', ['user_id' => Auth::id()]) }}' ">体調を新規登録</button>
             <div class="mx-auto w-full overflow-auto lg:w-2/3">
                 <table class="whitespace-no-wrap w-full table-auto text-left">
                     <thead>
                         <tr>
-                            <th class="title-font rounded-bl rounded-tl bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                            <th
+                                class="title-font rounded-bl rounded-tl bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 日付
                             </th>
-                            <th class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                            <th
+                                class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 良好サイン
                             </th>
-                            <th class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                            <th
+                                class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 注意サイン
                             </th>
-                            <th class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                            <th
+                                class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 悪化サイン
                             </th>
-                            <th class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                            <th
+                                class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 天気
                             </th>
-                            <th class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                            <th
+                                class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 気温
                             </th>
-                            <th class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                            <th
+                                class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 湿度
                             </th>
-                            <th class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                            <th
+                                class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 就寝時刻
                             </th>
-                            <th class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                            <th
+                                class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 起床時刻
                             </th>
-                            <th class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                            <th
+                                class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 睡眠時間
                             </th>
-                            <th class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                            <th
+                                class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 運動
                             </th>
-                            <th class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                            <th
+                                class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 朝食
                             </th>
-                            <th class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                            <th
+                                class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 昼食
                             </th>
-                            <th class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                            <th
+                                class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 夕食
                             </th>
-                            <th class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
-                                コメント
-                            </th>
-
                             <th
-                                class="title-font w-10 rounded-br rounded-tr bg-gray-100 text-sm font-medium tracking-wider text-gray-900">
+                                class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                コメント
                             </th>
                         </tr>
                     </thead>
@@ -65,9 +78,9 @@
                             <tr>
                                 <td class="px-4 py-3">{{ $condition->date }}</td>
                                 @foreach ($signs as $sign)
-                                    <td class="px-4 py-3">{{ $sign->sign_type == 0 ? $sign->sign : "無" }}</td>
-                                    <td class="px-4 py-3">{{ $sign->sign_type == 1 ? $sign->sign : "無" }}</td>
-                                    <td class="px-4 py-3">{{ $sign->sign_type == 2 ? $sign->sign : "無" }}</td>
+                                    <td class="px-4 py-3">{{ $sign->sign_type == 0 ? $sign->sign : '無' }}</td>
+                                    <td class="px-4 py-3">{{ $sign->sign_type == 1 ? $sign->sign : '無' }}</td>
+                                    <td class="px-4 py-3">{{ $sign->sign_type == 2 ? $sign->sign : '無' }}</td>
                                 @endforeach
                                 <td class="px-4 py-3">{{ $condition->weather->weather }}</td>
                                 <td class="px-4 py-3">{{ $condition->weather->temperature }}</td>
@@ -83,13 +96,17 @@
                                 <td>
                                     <form action="" method="POST">
                                         @csrf
-                                        <input type="submit" value="編集">
+                                        <button
+                                            class="rounded border-0 bg-indigo-500 px-8 py-2 text-lg text-white hover:bg-indigo-600 focus:outline-none"
+                                            type="submit">編集</button>
                                     </form>
                                 </td>
                                 <td>
                                     <form action="" method="POST">
                                         @csrf
-                                        <input type="submit" value="削除">
+                                        <button
+                                            class="rounded border-0 bg-red-500 px-8 py-2 text-lg text-white hover:bg-red-600 focus:outline-none"
+                                            type="submit">削除</button>
                                     </form>
                                 </td>
                             </tr>

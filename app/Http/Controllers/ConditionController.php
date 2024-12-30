@@ -10,11 +10,13 @@ use App\Models\Weather;
 
 class ConditionController extends Controller
 {
+    //ユーザーログイン後のトップページを表示
     public function top()
     {
-        return view('users/top');
+        return view('users.top');
     }
 
+    //体調一覧の表示
     public function index($user_id)
     {
         $conditions = Auth::user()->conditions;
@@ -30,7 +32,8 @@ class ConditionController extends Controller
         ]);
     }
 
-    public function add($user_id){
+    //体調の新規登録画面表示
+    public function create($user_id){
         $signs = Condition::findOrFail($user_id)->signs;
 
         return view('conditions.add', [
