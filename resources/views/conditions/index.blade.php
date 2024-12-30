@@ -77,11 +77,33 @@
                         @foreach ($conditions as $condition)
                             <tr>
                                 <td class="px-4 py-3">{{ $condition->date }}</td>
-                                @foreach ($signs as $sign)
-                                    <td class="px-4 py-3">{{ $sign->sign_type == 0 ? $sign->sign : '無' }}</td>
-                                    <td class="px-4 py-3">{{ $sign->sign_type == 1 ? $sign->sign : '無' }}</td>
-                                    <td class="px-4 py-3">{{ $sign->sign_type == 2 ? $sign->sign : '無' }}</td>
-                                @endforeach
+                                <td>
+                                    <ul>
+                                        @foreach ($condition->signs as $sign)
+                                            @if ($sign->sign_type == 0)
+                                                <li>{{ $sign->sign }}</li>
+                                            @endif
+                                        @endforeach
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        @foreach ($condition->signs as $sign)
+                                            @if ($sign->sign_type == 1)
+                                                <li>{{ $sign->sign }}</li>
+                                            @endif
+                                        @endforeach
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        @foreach ($condition->signs as $sign)
+                                            @if ($sign->sign_type == 2)
+                                                <li>{{ $sign->sign }}</li>
+                                            @endif
+                                        @endforeach
+                                    </ul>
+                                </td>
                                 <td class="px-4 py-3">{{ $condition->weather->weather }}</td>
                                 <td class="px-4 py-3">{{ $condition->weather->temperature }}</td>
                                 <td class="px-4 py-3">{{ $condition->weather->humidity }}</td>
