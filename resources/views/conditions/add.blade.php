@@ -20,7 +20,9 @@
                             <label for="good_sign" class="text-sm leading-7 text-gray-600">良好サイン</label>
                             <ul class="whitespace-no-wrap w-full text-left">
                                 @foreach ($signs as $sign)
-                                    <li class="px-4 py-3 text-lg text-gray-900">{{ $sign->sign_type == 0 ? $sign->sign : "無" }}<input name="good_sign" type="checkbox"></li>
+                                    @if ($sign->sign_type == 0)
+                                        <li class="px-4 py-3 text-lg text-gray-900">{{ $sign->sign }}<input name="good_sign" type="checkbox"></li>
+                                    @endif
                                 @endforeach
                             </ul>
                         </div>
@@ -30,7 +32,9 @@
                             <label for="good_sign" class="text-sm leading-7 text-gray-600">注意サイン</label>
                             <ul class="whitespace-no-wrap w-full text-left">
                                 @foreach ($signs as $sign)
-                                    <li class="px-4 py-3 text-lg text-gray-900">{{ $sign->sign_type == 1 ? $sign->sign : "無" }}<input name="caution_sign" type="checkbox"></li>
+                                    @if ($sign->sign_type == 1)
+                                        <li class="px-4 py-3 text-lg text-gray-900">{{ $sign->sign }}<input name="caution_sign" type="checkbox"></li>
+                                    @endif
                                 @endforeach
                             </ul>
                         </div>
@@ -40,7 +44,9 @@
                             <label for="good_sign" class="text-sm leading-7 text-gray-600">悪化サイン</label>
                             <ul class="whitespace-no-wrap w-full text-left">
                                 @foreach ($signs as $sign)
-                                    <li class="px-4 py-3 text-lg text-gray-900">{{ $sign->sign_type == 2 ? $sign->sign : "無" }}<input name="bad_sign" type="checkbox"></li>
+                                    @if ($sign->sign_type == 2)
+                                        <li class="px-4 py-3 text-lg text-gray-900">{{ $sign->sign }}<input name="bad_sign" type="checkbox"></li>
+                                    @endif
                                 @endforeach
                             </ul>
                         </div>
