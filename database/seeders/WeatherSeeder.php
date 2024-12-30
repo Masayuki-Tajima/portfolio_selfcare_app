@@ -22,13 +22,22 @@ class WeatherSeeder extends Seeder
         //     'updated_at' => '2024-12-23 00:00:00',
         // ]);
 
+        // DB::table('weathers')->insert([
+        //     'weather' => '快晴',
+        //     'condition_id' => 2,
+        //     'temperature' => 15,
+        //     'humidity' => 40,
+        //     'created_at' => '2024-12-29 00:00:00',
+        //     'updated_at' => '2024-12-29 00:00:00',
+        // ]);
+
         DB::table('weathers')->insert([
             'weather' => '快晴',
-            'condition_id' => 2,
+            'condition_id' => 3,
             'temperature' => 15,
             'humidity' => 40,
-            'created_at' => '2024-12-29 00:00:00',
-            'updated_at' => '2024-12-29 00:00:00',
+            'created_at' => '2024-12-30 00:00:00',
+            'updated_at' => '2024-12-30 00:00:00',
         ]);
 
 
