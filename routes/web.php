@@ -43,4 +43,7 @@ Route::middleware('auth')->group(function(){
     //体調サインの新規登録機能
     Route::post('/users/{user_id}/signs', [SignController::class, 'store'])->name('signs.store');
 
+    //体調サインの削除機能
+    Route::delete('/users/{user_id}/signs/{sign_id}', [SignController::class, 'destroy'])->name('signs.destroy');
+
 });

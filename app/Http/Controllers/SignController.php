@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class SignController extends Controller
 {
+    //体調サインの一覧表示
     public function index(){
         $signs = Auth::user()->signs;
 
@@ -18,10 +19,12 @@ class SignController extends Controller
         ]);
     }
 
+    // 体調サインの新規登録画面表示
     public function create(){
         return view('signs.create');
     }
 
+    //体調サインの新規登録機能
     public function store(SignRequest $request, $user_id){
         $sign = new Sign();
         $sign->user_id = Auth::id();
@@ -30,5 +33,13 @@ class SignController extends Controller
         $sign->save();
 
         return redirect()->route('signs.index', ['user_id' => $user_id])->with('flash_message', '登録が完了しました。');
+    }
+
+    //体調サインの削除機能
+    public function destroy($user_id, $sign_id){
+        // dd($sign_id);
+        Sign::findOrFail($sign_id)->delete();
+
+        return redirect()->route('signs.index', ['user_id' => $user_id])->with('flash_message', '体調サインを削除しました。');
     }
 }
