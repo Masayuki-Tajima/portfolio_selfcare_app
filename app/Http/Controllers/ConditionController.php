@@ -9,6 +9,7 @@ use App\Models\Sign;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Weather;
+use Carbon\Carbon;
 
 class ConditionController extends Controller
 {
@@ -52,7 +53,14 @@ class ConditionController extends Controller
         $condition->lunch = $request->input('lunch');
         $condition->dinner = $request->input('dinner');
         $condition->comment = $request->input('comment');
-        $condition->sleep_duration = $request->input('sleep_duration');
+
+        //睡眠時間を計算
+        $sleep_time = new Carbon($request->input('sleep_time'));
+        $wakeup_time = new Carbon($request->input('wakeup_time'));
+        $diffInSeconds = $sleep_time->diffInSeconds($wakeup_time);
+        $hours = floor($diffInSeconds / 3600);
+        $minutes = floor(($diffInSeconds % 3600) / 60);
+        $condition->sleep_duration = $hours . ':' . $minutes;
 
         $condition->save();
 
@@ -119,7 +127,14 @@ class ConditionController extends Controller
         $condition->lunch = $request->input('lunch');
         $condition->dinner = $request->input('dinner');
         $condition->comment = $request->input('comment');
-        $condition->sleep_duration = $request->input('sleep_duration');
+
+        //睡眠時間を計算
+        $sleep_time = new Carbon($request->input('sleep_time'));
+        $wakeup_time = new Carbon($request->input('wakeup_time'));
+        $diffInSeconds = $sleep_time->diffInSeconds($wakeup_time);
+        $hours = floor($diffInSeconds / 3600);
+        $minutes = floor(($diffInSeconds % 3600) / 60);
+        $condition->sleep_duration = $hours . ':' . $minutes;
 
         $condition->save();
 
