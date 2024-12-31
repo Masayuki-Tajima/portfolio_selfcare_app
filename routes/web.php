@@ -37,8 +37,11 @@ Route::middleware('auth')->group(function(){
     //体調の編集ページを表示
     Route::get('/users/{user_id}/conditions/{condition_id}/edit', [ConditionController::class, 'edit'])->name('conditions.edit');
 
+    //体調の更新機能
+    Route::put('/users/{user_id}/conditions/{condition_id}', [ConditionController::class, 'update'])->name('conditions.update');
 
-    
+
+
     //体調サイン一覧のページを表示
     Route::get('/users/{user_id}/signs', [SignController::class, 'index'])->name('signs.index');
 
