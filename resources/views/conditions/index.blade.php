@@ -123,8 +123,9 @@
                                     </button>
                                 </td>
                                 <td>
-                                    <form action="" method="POST">
+                                    <form action="{{ route('conditions.destroy', ['user_id' => Auth::id(), 'condition_id' => $condition->id]) }}" method="POST" onsubmit="return confirm('本当に削除してもよろしいですか？');">
                                         @csrf
+                                        @method('DELETE')
                                         <button
                                             class="rounded border-0 bg-red-500 px-8 py-2 text-lg text-white hover:bg-red-600 focus:outline-none"
                                             type="submit">削除</button>
