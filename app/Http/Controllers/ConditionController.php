@@ -70,6 +70,7 @@ class ConditionController extends Controller
 
         $weather->save();
 
+        //体調一覧ページへリダイレクト
         return redirect()->route('conditions.index', ['user_id' => $user_id]);
     }
 
@@ -102,5 +103,32 @@ class ConditionController extends Controller
             'selectedBadSignsIds' => $selectedBadSignsIds,
         ]);
 
+    }
+
+    //体調の更新機能
+    public function update(ConditionRequest $request, $user_id, $condition_id)
+    {
+        //conditionテーブルの値を更新
+        $condition = Condition::findOrFail($condition_id);
+        $condition->user_id = $user_id;
+        $condition->date = $request->input('date');
+        $condition->sleep_time = $request->input('sleep_time');
+        $condition->wakeup_time = $request->input('wakeup_time');
+        $condition->exercise = $request->input('exercise');
+        $condition->breakfast = $request->input('breakfast');
+        $condition->lunch = $request->input('lunch');
+        $condition->dinner = $request->input('dinner');
+        $condition->comment = $request->input('comment');
+        $condition->sleep_duration = $request->input('sleep_duration');
+
+        $condition->save();
+
+        //condition_signテーブルの紐づけを更新
+        $condition->signs()->sync($request->input('good_signs'));
+        $condition->signs()->syncWithoutDetaching($request->input('caution_signs'));
+        $condition->signs()->syncWithoutDetaching($request->input('bad_signs'));
+
+        //体調一覧ページへリダイレクト
+        return redirect()->route('conditions.index', ['user_id' => $user_id]);
     }
 }
