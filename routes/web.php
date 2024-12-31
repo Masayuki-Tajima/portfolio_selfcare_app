@@ -40,6 +40,8 @@ Route::middleware('auth')->group(function(){
     //体調の更新機能
     Route::put('/users/{user_id}/conditions/{condition_id}', [ConditionController::class, 'update'])->name('conditions.update');
 
+    //体調の削除機能
+    Route::delete('/users/{user_id}/conditions/{condition_id}', [ConditionController::class, 'destroy'])->name('conditions.destroy');
 
 
     //体調サイン一覧のページを表示
