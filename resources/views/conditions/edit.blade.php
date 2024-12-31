@@ -7,8 +7,9 @@
                     asymmetrical gentrify.</p> --}}
             </div>
             <div class="mx-auto md:w-2/3 lg:w-1/2">
-                <form action="" method="POST">
+                <form action="{{ route('conditions.update', ['user_id' => Auth::id(), 'condition_id' => $condition[0]->id]) }}" method="POST">
                     @csrf
+                    @method('PUT')
                     <div class="-m-2 flex flex-wrap">
                         <div class="w-full p-2">
                             <div class="relative">
@@ -38,17 +39,17 @@
                         </div>
                         <div class="w-full p-2">
                             <div class="relative">
-                                <label for="good_sign" class="text-sm leading-7 text-gray-600">注意サイン</label>
+                                <label for="caution_sign" class="text-sm leading-7 text-gray-600">注意サイン</label>
                                 <ul class="whitespace-no-wrap w-full text-left">
                                     @foreach ($allCautionSigns as $cautionSign)
                                         @if (in_array($cautionSign->id, $selectedCautionSignsIds))
                                             <li class="px-4 py-3 text-lg text-gray-900">{{ $cautionSign->sign }}<input
-                                                    name="good_signs[]" value="{{ $cautionSign->id }}" type="checkbox"
+                                                    name="caution_signs[]" value="{{ $cautionSign->id }}" type="checkbox"
                                                     checked>
                                             </li>
                                         @else
                                             <li class="px-4 py-3 text-lg text-gray-900">{{ $cautionSign->sign }}<input
-                                                    name="good_signs[]" value="{{ $cautionSign->id }}" type="checkbox">
+                                                    name="caution_signs[]" value="{{ $cautionSign->id }}" type="checkbox">
                                             </li>
                                         @endif
                                     @endforeach
@@ -57,17 +58,17 @@
                         </div>
                         <div class="w-full p-2">
                             <div class="relative">
-                                <label for="good_sign" class="text-sm leading-7 text-gray-600">悪化サイン</label>
+                                <label for="bad_sign" class="text-sm leading-7 text-gray-600">悪化サイン</label>
                                 <ul class="whitespace-no-wrap w-full text-left">
                                     @foreach ($allBadSigns as $badSign)
                                         @if (in_array($badSign->id, $selectedBadSignsIds))
                                             <li class="px-4 py-3 text-lg text-gray-900">{{ $badSign->sign }}<input
-                                                    name="good_signs[]" value="{{ $badSign->id }}" type="checkbox"
+                                                    name="bad_signs[]" value="{{ $badSign->id }}" type="checkbox"
                                                     checked>
                                             </li>
                                         @else
                                             <li class="px-4 py-3 text-lg text-gray-900">{{ $badSign->sign }}<input
-                                                    name="good_signs[]" value="{{ $badSign->id }}" type="checkbox">
+                                                    name="bad_signs[]" value="{{ $badSign->id }}" type="checkbox">
                                             </li>
                                         @endif
                                     @endforeach
