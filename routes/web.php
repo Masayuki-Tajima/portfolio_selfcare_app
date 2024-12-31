@@ -34,7 +34,11 @@ Route::middleware('auth')->group(function(){
     //体調の新規登録機能
     Route::post('/users/{user_id}/conditions', [ConditionController::class, 'store'])->name('conditions.store');
 
+    //体調の編集ページを表示
+    Route::get('/users/{user_id}/conditions/{condition_id}/edit', [ConditionController::class, 'edit'])->name('conditions.edit');
 
+
+    
     //体調サイン一覧のページを表示
     Route::get('/users/{user_id}/signs', [SignController::class, 'index'])->name('signs.index');
 
