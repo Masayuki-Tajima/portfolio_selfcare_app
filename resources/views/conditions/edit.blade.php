@@ -91,14 +91,6 @@
                                     class="w-full rounded border border-gray-300 bg-gray-100 bg-opacity-50 px-3 py-1 text-base leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200">
                             </div>
                         </div>
-                        <div class="w-1/3 p-2">
-                            <div class="relative">
-                                <label for="wakeup_time" class="text-sm leading-7 text-gray-600">睡眠時間</label>
-                                <input type="time" id="sleep_duration" name="sleep_duration"
-                                    value="{{ $condition[0]->sleep_duration }}"
-                                    class="w-full rounded border border-gray-300 bg-gray-100 bg-opacity-50 px-3 py-1 text-base leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200">
-                            </div>
-                        </div>
                         <div class="w-full p-2">
                             <div class="relative">
                                 <label for="exercise" class="text-sm leading-7 text-gray-600">運動</label>
