@@ -116,12 +116,11 @@
                                 <td class="px-4 py-3">{{ $condition->dinner }}</td>
                                 <td class="px-4 py-3">{{ $condition->comment }}</td>
                                 <td>
-                                    <form action="" method="POST">
-                                        @csrf
-                                        <button
-                                            class="rounded border-0 bg-indigo-500 px-8 py-2 text-lg text-white hover:bg-indigo-600 focus:outline-none"
-                                            type="submit">編集</button>
-                                    </form>
+                                    <button type="button"
+                                        onclick="location.href='{{ route('conditions.edit', ['user_id' => Auth::id(), 'condition_id' => $condition->id]) }}'"
+                                        class="rounded border-0 bg-indigo-500 px-8 py-2 text-lg text-white hover:bg-indigo-600 focus:outline-none">
+                                        編集
+                                    </button>
                                 </td>
                                 <td>
                                     <form action="" method="POST">
