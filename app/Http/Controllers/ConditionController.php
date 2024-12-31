@@ -21,7 +21,7 @@ class ConditionController extends Controller
     //体調一覧の表示
     public function index($user_id)
     {
-        $conditions = Condition::where('user_id', '=', $user_id)->with('signs')->get();
+        $conditions = Condition::where('user_id', '=', $user_id)->with('signs')->orderBy('date', 'desc')->get();
 
         return view('conditions.index', [
             'conditions' => $conditions,
@@ -130,5 +130,19 @@ class ConditionController extends Controller
 
         //体調一覧ページへリダイレクト
         return redirect()->route('conditions.index', ['user_id' => $user_id]);
+    }
+
+    //体調の削除機能
+    public function destroy($user_id, $condition_id)
+    {
+        $condition = Condition::findOrFail($condition_id);
+
+        $condition->delete();
+
+        //condition_signテーブルの紐づけを削除
+        $condition->signs()->detach();
+
+        //体調一覧ページへリダイレクト
+        return redirect()->route('conditions.index', ['user_id' => $user_id])->with('flash_message', '体調データを削除しました。');
     }
 }
