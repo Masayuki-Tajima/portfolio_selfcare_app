@@ -33,22 +33,6 @@
                                             </li>
                                         @endif
                                     @endforeach
-
-
-                                    {{-- @foreach ($condition[0]->signs as $selectedSign)
-                                        @foreach ($signs as $sign)
-                                            @if ($sign->id == $selectedSign->id && $sign->sign_type == 0)
-                                                <li class="px-4 py-3 text-lg text-gray-900">{{ $sign->sign }}<input
-                                                        name="good_signs[]" value="{{ $sign->id }}" type="checkbox"
-                                                        checked>
-                                                </li>
-                                            @elseif ($sign->sign_type == 0)
-                                                <li class="px-4 py-3 text-lg text-gray-900">{{ $sign->sign }}<input
-                                                        name="good_signs[]" value="{{ $sign->id }}" type="checkbox">
-                                                </li>
-                                            @endif
-                                        @endforeach
-                                    @endforeach --}}
                                 </ul>
                             </div>
                         </div>
@@ -68,23 +52,6 @@
                                             </li>
                                         @endif
                                     @endforeach
-
-
-                                    {{-- @foreach ($condition[0]->signs as $selectedSign)
-                                        @foreach ($signs as $sign)
-                                            @if ($sign->id == $selectedSign->id && $sign->sign_type == 1)
-                                                <li class="px-4 py-3 text-lg text-gray-900">{{ $sign->sign }}<input
-                                                        name="good_signs[]" value="{{ $sign->id }}" type="checkbox"
-                                                        checked>
-                                                </li>
-                                            @elseif ($sign->sign_type == 1)
-                                                <li class="px-4 py-3 text-lg text-gray-900">{{ $sign->sign }}<input
-                                                        name="good_signs[]" value="{{ $sign->id }}"
-                                                        type="checkbox">
-                                                </li>
-                                            @endif
-                                        @endforeach
-                                    @endforeach --}}
                                 </ul>
                             </div>
                         </div>
@@ -104,23 +71,6 @@
                                             </li>
                                         @endif
                                     @endforeach
-
-
-                                    {{-- @foreach ($condition[0]->signs as $selectedSign)
-                                        @foreach ($signs as $sign)
-                                            @if ($sign->id == $selectedSign->id && $sign->sign_type == 2)
-                                                <li class="px-4 py-3 text-lg text-gray-900">{{ $sign->sign }}<input
-                                                        name="good_signs[]" value="{{ $sign->id }}" type="checkbox"
-                                                        checked>
-                                                </li>
-                                            @elseif ($sign->sign_type == 2)
-                                                <li class="px-4 py-3 text-lg text-gray-900">{{ $sign->sign }}<input
-                                                        name="good_signs[]" value="{{ $sign->id }}"
-                                                        type="checkbox">
-                                                </li>
-                                            @endif
-                                        @endforeach
-                                    @endforeach --}}
                                 </ul>
                             </div>
                         </div>
