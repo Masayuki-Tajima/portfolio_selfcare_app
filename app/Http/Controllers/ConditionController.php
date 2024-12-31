@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Condition;
 use Illuminate\Http\Request;
 use App\Http\Requests\ConditionRequest;
+use App\Models\Sign;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Weather;
@@ -32,11 +33,12 @@ class ConditionController extends Controller
     {
         $signs = Auth::user()->signs->where('user_id', '=', $user_id);
 
-        return view('conditions.add', [
+        return view('conditions.create', [
             'signs' => $signs
         ]);
     }
 
+    //体調の新規登録機能
     public function store(ConditionRequest $request, $user_id)
     {
         //conditionテーブルへの値の挿入
@@ -69,6 +71,36 @@ class ConditionController extends Controller
         $weather->save();
 
         return redirect()->route('conditions.index', ['user_id' => $user_id]);
+    }
+
+    //体調編集画面の表示
+    public function edit($user_id, $condition_id)
+    {
+        $condition = Condition::where('user_id', '=', $user_id)->where('id', '=', $condition_id)->with('signs')->get();
+        $signs = Auth::user()->signs;
+        $allGoodSigns = $signs->where('sign_type', '=', 0);
+        $allCautionSigns = $signs->where('sign_type', '=', 1);
+        $allBadSigns = $signs->where('sign_type', '=', 2);
+        $selectedGoodSignsIds = $condition[0]->signs->where('sign_type', '=', 0)->pluck('id')->toArray();
+        $selectedCautionSignsIds = $condition[0]->signs->where('sign_type', '=', 1)->pluck('id')->toArray();
+        $selectedBadSignsIds = $condition[0]->signs->where('sign_type', '=', 2)->pluck('id')->toArray();
+        // $selectedGoodSignsIds = [0 => 1];
+        // $selectedCautionSignsIds = [];
+        // $selectedBadSignsIds = [];
+
+        // dd($condition[0]->signs[0]);
+        // dd('すべての良好サイン', $allGoodSigns[0]);
+        // dd('選択された良好サイン', $selectedGoodSignsIds, '選択された注意サイン', $selectedCautionSignsIds, '選択された悪化サイン', $selectedBadSignsIds);
+
+        return view('conditions.edit', [
+            'condition' => $condition,
+            'allGoodSigns' => $allGoodSigns,
+            'allCautionSigns' => $allCautionSigns,
+            'allBadSigns' => $allBadSigns,
+            'selectedGoodSignsIds' => $selectedGoodSignsIds,
+            'selectedCautionSignsIds' => $selectedCautionSignsIds,
+            'selectedBadSignsIds' => $selectedBadSignsIds,
+        ]);
 
     }
 }
