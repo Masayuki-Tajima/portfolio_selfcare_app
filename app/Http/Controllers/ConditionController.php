@@ -71,7 +71,7 @@ class ConditionController extends Controller
         $condition->signs()->attach($request->input('bad_signs'));
 
         //天気情報取得の準備
-        $city_name = '東京';
+        $city_name = $request->area;
         $city_latitude = config('const.positions.' . $city_name . '.lat');  //緯度
         $city_longitude = config('const.positions.' . $city_name . '.lon'); //経度
         $api_key = config('const.api.weather.key');
