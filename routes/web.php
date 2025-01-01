@@ -4,10 +4,14 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ConditionController;
 use App\Http\Controllers\SignController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 Route::get('/', function () {
     return view('top');
 });
+
+//ゲストユーザーログイン処理
+Route::get('/guest', [AuthenticatedSessionController::class, 'guestLogin'])->name('guest.login');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
