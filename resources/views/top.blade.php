@@ -70,7 +70,7 @@
                                 <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
                             </svg>
                         </div>
-                        <a href="" class="block text-lg text-gray-900 font-medium title-font mb-2">ログイン画面へ</a>
+                        <a href="{{ route('login') }}" class="block text-lg text-gray-900 font-medium title-font mb-2">ログイン画面へ</a>
                         {{-- <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p> --}}
                     </div>
                 </div>
