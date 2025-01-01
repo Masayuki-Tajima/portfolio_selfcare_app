@@ -133,7 +133,7 @@
                         </div>
                         <div class="w-full p-2">
                             <button type="submit"
-                                class="mx-auto flex rounded border-0 bg-indigo-500 px-8 py-2 text-lg text-white hover:bg-indigo-600 focus:outline-none">登録</button>
+                                class="mx-auto flex rounded border-0 bg-indigo-500 px-8 py-2 text-lg text-white hover:bg-indigo-600 focus:outline-none">更新</button>
                         </div>
                     </div>
                 </form>
