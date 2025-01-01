@@ -23,7 +23,9 @@
                                 <ul class="whitespace-no-wrap w-full text-left">
                                     @foreach ($signs as $sign)
                                         @if ($sign->sign_type == 0)
-                                            <li class="px-4 py-3 text-lg text-gray-900">{{ $sign->sign }}<input name="good_signs[]" value="{{ $sign->id }}" type="checkbox"></li>
+                                            <li class="px-4 py-3 text-lg text-gray-900">{{ $sign->sign }}<input
+                                                    name="good_signs[]" value="{{ $sign->id }}" type="checkbox">
+                                            </li>
                                         @endif
                                     @endforeach
                                 </ul>
@@ -35,7 +37,9 @@
                                 <ul class="whitespace-no-wrap w-full text-left">
                                     @foreach ($signs as $sign)
                                         @if ($sign->sign_type == 1)
-                                            <li class="px-4 py-3 text-lg text-gray-900">{{ $sign->sign }}<input name="caution_signs[]" value="{{ $sign->id }}" type="checkbox"></li>
+                                            <li class="px-4 py-3 text-lg text-gray-900">{{ $sign->sign }}<input
+                                                    name="caution_signs[]" value="{{ $sign->id }}" type="checkbox">
+                                            </li>
                                         @endif
                                     @endforeach
                                 </ul>
@@ -47,10 +51,32 @@
                                 <ul class="whitespace-no-wrap w-full text-left">
                                     @foreach ($signs as $sign)
                                         @if ($sign->sign_type == 2)
-                                            <li class="px-4 py-3 text-lg text-gray-900">{{ $sign->sign }}<input name="bad_signs[]" value="{{ $sign->id }}" type="checkbox"></li>
+                                            <li class="px-4 py-3 text-lg text-gray-900">{{ $sign->sign }}<input
+                                                    name="bad_signs[]" value="{{ $sign->id }}" type="checkbox"></li>
                                         @endif
                                     @endforeach
                                 </ul>
+                            </div>
+                        </div>
+                        <div class="w-full p-2">
+                            <div class="relative">
+                                <label for="exercise" class="text-sm leading-7 text-gray-600">天気情報収集地点</label>
+                                <select name="area" id="area">
+                                    <option value="東京" selected>東京</option>
+                                    <option value="大阪">大阪</option>
+                                    <option value="名古屋">名古屋</option>
+                                    <option value="札幌">札幌</option>
+                                    <option value="仙台">仙台</option>
+                                    <option value="調布市">調布市</option>
+                                    <option value="多摩市">多摩市</option>
+                                    <option value="小平市">小平市</option>
+                                    <option value="国分寺市">国分寺市</option>
+                                    <option value="新潟">新潟</option>
+                                    <option value="京都">京都</option>
+                                    <option value="広島">広島</option>
+                                    <option value="高松">高松</option>
+                                    <option value="福岡">福岡</option>
+                                </select>
                             </div>
                         </div>
                         <div class="w-1/3 p-2">
@@ -103,8 +129,7 @@
                             </div>
                         </div>
                         <div class="w-full p-2">
-                            <button
-                                type="submit"
+                            <button type="submit"
                                 class="mx-auto flex rounded border-0 bg-indigo-500 px-8 py-2 text-lg text-white hover:bg-indigo-600 focus:outline-none">登録</button>
                         </div>
                     </div>

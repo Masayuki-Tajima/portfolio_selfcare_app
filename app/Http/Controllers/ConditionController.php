@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Weather;
 use Carbon\Carbon;
+use GuzzleHttp\Client;
 
 class ConditionController extends Controller
 {
@@ -69,12 +70,26 @@ class ConditionController extends Controller
         $condition->signs()->attach($request->input('caution_signs'));
         $condition->signs()->attach($request->input('bad_signs'));
 
+        //天気情報取得の準備
+        $city_name = $request->area;
+        $city_latitude = config('const.positions.' . $city_name . '.lat');  //緯度
+        $city_longitude = config('const.positions.' . $city_name . '.lon'); //経度
+        $api_key = config('const.api.weather.key');
+        $base_url = config('const.api.weather.url');
+        $url = $base_url . '?lat=' . $city_latitude . '&lon=' . $city_longitude . '&appid=' . $api_key . '&lang=ja&units=metric';
+
+         // apiに接続
+        $client = new Client();
+        $response = $client->request('GET', $url);
+        $weather_data = $response->getBody();
+        $weather_data = json_decode($weather_data, true);
+
         //weatherテーブルへの値の挿入
         $weather = new Weather();
         $weather->condition_id = $condition->id;
-        $weather->weather = '曇り';
-        $weather->temperature = 26;
-        $weather->humidity = 60;
+        $weather->weather = $weather_data['weather'][0]['description'];
+        $weather->temperature = $weather_data['main']['temp'];
+        $weather->humidity = $weather_data['main']['humidity'];
 
         $weather->save();
 
