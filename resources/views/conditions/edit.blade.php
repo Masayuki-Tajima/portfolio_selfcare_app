@@ -1,13 +1,24 @@
 <x-user-layout>
     <section class="body-font relative text-gray-600">
         <div class="container mx-auto px-5 py-24">
+            @if ($errors->any())
+                <div>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="mb-12 flex w-full flex-col text-center">
                 <h1 class="title-font mb-4 text-2xl font-medium text-gray-900 sm:text-3xl">編集</h1>
                 {{-- <p class="mx-auto text-base leading-relaxed lg:w-2/3">Whatever cardigan tote bag tumblr hexagon brooklyn
                     asymmetrical gentrify.</p> --}}
             </div>
             <div class="mx-auto md:w-2/3 lg:w-1/2">
-                <form action="{{ route('conditions.update', ['user_id' => Auth::id(), 'condition_id' => $condition[0]->id]) }}" method="POST">
+                <form
+                    action="{{ route('conditions.update', ['user_id' => Auth::id(), 'condition_id' => $condition[0]->id]) }}"
+                    method="POST">
                     @csrf
                     @method('PUT')
                     <div class="-m-2 flex flex-wrap">
@@ -44,12 +55,13 @@
                                     @foreach ($allCautionSigns as $cautionSign)
                                         @if (in_array($cautionSign->id, $selectedCautionSignsIds))
                                             <li class="px-4 py-3 text-lg text-gray-900">{{ $cautionSign->sign }}<input
-                                                    name="caution_signs[]" value="{{ $cautionSign->id }}" type="checkbox"
-                                                    checked>
+                                                    name="caution_signs[]" value="{{ $cautionSign->id }}"
+                                                    type="checkbox" checked>
                                             </li>
                                         @else
                                             <li class="px-4 py-3 text-lg text-gray-900">{{ $cautionSign->sign }}<input
-                                                    name="caution_signs[]" value="{{ $cautionSign->id }}" type="checkbox">
+                                                    name="caution_signs[]" value="{{ $cautionSign->id }}"
+                                                    type="checkbox">
                                             </li>
                                         @endif
                                     @endforeach
@@ -110,8 +122,7 @@
                         <div class="w-1/3 p-2">
                             <div class="relative">
                                 <label for="lunch" class="text-sm leading-7 text-gray-600">昼食</label>
-                                <input type="text" id="lunch" name="lunch"
-                                    value="{{ $condition[0]->lunch }}"
+                                <input type="text" id="lunch" name="lunch" value="{{ $condition[0]->lunch }}"
                                     class="w-full rounded border border-gray-300 bg-gray-100 bg-opacity-50 px-3 py-1 text-base leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200">
                             </div>
                         </div>
