@@ -22,8 +22,8 @@ class SignRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'sign' => 'required',
-            'sign_type' => 'required'
+            'sign' => 'required|max:255',
+            'sign_type' => 'required|integer'
         ];
     }
 }

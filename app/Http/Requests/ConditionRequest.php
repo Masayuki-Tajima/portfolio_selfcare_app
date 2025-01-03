@@ -22,14 +22,14 @@ class ConditionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'date' => 'required',
+            'date' => 'required|date',
             'sleep_time' => 'required',
             'wakeup_time' => 'required',
-            'exercise' => 'required',
-            'breakfast' => 'required',
-            'lunch' => 'required',
-            'dinner' => 'required',
-            'comment' => 'required',
+            'exercise' => 'required|max:255',
+            'breakfast' => 'required|max:255',
+            'lunch' => 'required|max:255',
+            'dinner' => 'required|max:255',
+            'comment' => 'required|max:65535',
         ];
     }
 }
