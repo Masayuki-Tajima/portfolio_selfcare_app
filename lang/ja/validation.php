@@ -14,5 +14,15 @@ return [
         'email'                 => 'メールアドレス',
         'password'              => 'パスワード',
         'password_confirmation' => 'パスワード確認',
+        'date'                  => '日付',
+        'sleep_time'            => '就寝時刻',
+        'wakeup_time'           => '起床時刻',
+        'exercise'              => '運動',
+        'breakfast'             => '朝食',
+        'lunch'                 => '昼食',
+        'dinner'                => '夕食',
+        'comment'               => 'コメント',
+        'sign'                  => '体調サイン',
+        'sign_type'             => 'サインの種類'
     ],
 ];
