@@ -1,6 +1,15 @@
 <x-user-layout>
     <section class="body-font relative text-gray-600">
         <div class="container mx-auto px-5 py-24">
+            @if ($errors->any())
+                <div>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="mb-12 flex w-full flex-col text-center">
                 <h1 class="title-font mb-4 text-2xl font-medium text-gray-900 sm:text-3xl">体調サインの新規登録</h1>
                 {{-- <p class="mx-auto text-base leading-relaxed lg:w-2/3">Whatever cardigan tote bag tumblr hexagon brooklyn
