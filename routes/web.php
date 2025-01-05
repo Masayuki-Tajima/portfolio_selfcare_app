@@ -25,39 +25,39 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 
-Route::middleware('auth')->group(function(){
+Route::prefix('users')->middleware('auth')->group(function(){
     //ユーザーログイン後のトップページを表示
-    Route::get('/users/top', [ConditionController::class, 'top'])->name('users.top');
+    Route::get('top', [ConditionController::class, 'top'])->name('users.top');
 
     //体調一覧のページを表示
-    Route::get('/users/{user_id}/conditions', [ConditionController::class, 'index'])->name('conditions.index');
+    Route::get('{user_id}/conditions', [ConditionController::class, 'index'])->name('conditions.index');
 
     //体調の新規登録ページを表示
-    Route::get('/users/{user_id}/conditions/create', [ConditionController::class, 'create'])->name('conditions.create');
+    Route::get('{user_id}/conditions/create', [ConditionController::class, 'create'])->name('conditions.create');
 
     //体調の新規登録機能
-    Route::post('/users/{user_id}/conditions', [ConditionController::class, 'store'])->name('conditions.store');
+    Route::post('{user_id}/conditions', [ConditionController::class, 'store'])->name('conditions.store');
 
     //体調の編集ページを表示
-    Route::get('/users/{user_id}/conditions/{condition_id}/edit', [ConditionController::class, 'edit'])->name('conditions.edit');
+    Route::get('{user_id}/conditions/{condition_id}/edit', [ConditionController::class, 'edit'])->name('conditions.edit');
 
     //体調の更新機能
-    Route::put('/users/{user_id}/conditions/{condition_id}', [ConditionController::class, 'update'])->name('conditions.update');
+    Route::put('{user_id}/conditions/{condition_id}', [ConditionController::class, 'update'])->name('conditions.update');
 
     //体調の削除機能
-    Route::delete('/users/{user_id}/conditions/{condition_id}', [ConditionController::class, 'destroy'])->name('conditions.destroy');
+    Route::delete('{user_id}/conditions/{condition_id}', [ConditionController::class, 'destroy'])->name('conditions.destroy');
 
 
     //体調サイン一覧のページを表示
-    Route::get('/users/{user_id}/signs', [SignController::class, 'index'])->name('signs.index');
+    Route::get('{user_id}/signs', [SignController::class, 'index'])->name('signs.index');
 
     //体調サインの新規登録ページを表示
-    Route::get('/users/{user_id}/signs/create', [SignController::class, 'create'])->name('signs.create');
+    Route::get('{user_id}/signs/create', [SignController::class, 'create'])->name('signs.create');
 
     //体調サインの新規登録機能
-    Route::post('/users/{user_id}/signs', [SignController::class, 'store'])->name('signs.store');
+    Route::post('{user_id}/signs', [SignController::class, 'store'])->name('signs.store');
 
     //体調サインの削除機能
-    Route::delete('/users/{user_id}/signs/{sign_id}', [SignController::class, 'destroy'])->name('signs.destroy');
+    Route::delete('{user_id}/signs/{sign_id}', [SignController::class, 'destroy'])->name('signs.destroy');
 
 });
