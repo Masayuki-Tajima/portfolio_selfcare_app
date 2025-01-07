@@ -43,7 +43,7 @@ class AuthenticatedSessionController extends Controller
     {
         // id=1 のゲストユーザー情報がDBに存在すれば、ゲストログインする
         if(Auth::loginUsingId(self::GUEST_USER_ID)){
-            return redirect()->route('users.top');
+            return redirect()->route('conditions.top', ['user_id' => 1]);
         }
 
         return view('top');

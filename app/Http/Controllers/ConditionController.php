@@ -15,9 +15,11 @@ use GuzzleHttp\Client;
 class ConditionController extends Controller
 {
     //ユーザーログイン後のトップページを表示
-    public function top()
+    public function top($user_id)
     {
-        return view('users.top');
+        return view('conditions.top', [
+            'user_id' => $user_id
+        ]);
     }
 
     //体調一覧の表示
