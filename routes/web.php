@@ -27,7 +27,7 @@ require __DIR__ . '/auth.php';
 
 Route::prefix('users/')->middleware('auth')->group(function(){
     //ユーザーログイン後のトップページを表示
-    Route::get('top', [ConditionController::class, 'top'])->name('users.top');
+    Route::get('{user_id}/top', [ConditionController::class, 'top'])->name('conditions.top');
 
     Route::name('conditions.')->group(function(){
         //体調一覧のページを表示
