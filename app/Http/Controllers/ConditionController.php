@@ -136,7 +136,6 @@ class ConditionController extends Controller
         //conditionテーブルの値を更新
         $condition = Condition::findOrFail($condition_id);
         $condition->user_id = $user_id;
-        $condition->date = $request->input('date');
         $condition->sleep_time = $request->input('sleep_time');
         $condition->wakeup_time = $request->input('wakeup_time');
         $condition->exercise = $request->input('exercise');
