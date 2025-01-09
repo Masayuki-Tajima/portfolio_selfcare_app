@@ -22,7 +22,6 @@ class ConditionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'date' => 'required|date',
             'sleep_time' => 'required',
             'wakeup_time' => 'required',
             'exercise' => 'required|max:255',
