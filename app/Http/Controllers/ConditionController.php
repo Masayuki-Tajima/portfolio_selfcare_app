@@ -48,7 +48,7 @@ class ConditionController extends Controller
         //conditionテーブルへの値の挿入
         $condition = new Condition();
         $condition->user_id = $user_id;
-        $condition->date = $request->input('date');
+        $condition->date = now()->format('Y-m-d');
         $condition->sleep_time = $request->input('sleep_time');
         $condition->wakeup_time = $request->input('wakeup_time');
         $condition->exercise = $request->input('exercise');
