@@ -9,7 +9,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 //ログイン前のトップページ
 Route::get('/', function () {
     return view('top');
-});
+})->name('top');
 
 //ゲストユーザーログイン処理
 Route::get('/guest', [AuthenticatedSessionController::class, 'guestLogin'])->name('guest.login');
