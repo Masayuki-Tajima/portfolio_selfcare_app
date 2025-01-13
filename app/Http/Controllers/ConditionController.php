@@ -60,10 +60,7 @@ class ConditionController extends Controller
         //睡眠時間を計算
         $sleep_time = new Carbon($request->input('sleep_time'));
         $wakeup_time = new Carbon($request->input('wakeup_time'));
-        $diffInSeconds = $sleep_time->diffInSeconds($wakeup_time);
-        $hours = floor($diffInSeconds / 3600);
-        $minutes = floor(($diffInSeconds % 3600) / 60);
-        $condition->sleep_duration = $hours . ':' . $minutes;
+        $condition->sleep_duration = $this->calculateSleepDuration($sleep_time, $wakeup_time);
 
         $condition->save();
 
@@ -110,13 +107,6 @@ class ConditionController extends Controller
         $selectedGoodSignsIds = $condition[0]->signs->where('sign_type', '=', 0)->pluck('id')->toArray();
         $selectedCautionSignsIds = $condition[0]->signs->where('sign_type', '=', 1)->pluck('id')->toArray();
         $selectedBadSignsIds = $condition[0]->signs->where('sign_type', '=', 2)->pluck('id')->toArray();
-        // $selectedGoodSignsIds = [0 => 1];
-        // $selectedCautionSignsIds = [];
-        // $selectedBadSignsIds = [];
-
-        // dd($condition[0]->signs[0]);
-        // dd('すべての良好サイン', $allGoodSigns[0]);
-        // dd('選択された良好サイン', $selectedGoodSignsIds, '選択された注意サイン', $selectedCautionSignsIds, '選択された悪化サイン', $selectedBadSignsIds);
 
         return view('conditions.edit', [
             'condition' => $condition,
@@ -147,10 +137,7 @@ class ConditionController extends Controller
         //睡眠時間を計算
         $sleep_time = new Carbon($request->input('sleep_time'));
         $wakeup_time = new Carbon($request->input('wakeup_time'));
-        $diffInSeconds = $sleep_time->diffInSeconds($wakeup_time);
-        $hours = floor($diffInSeconds / 3600);
-        $minutes = floor(($diffInSeconds % 3600) / 60);
-        $condition->sleep_duration = $hours . ':' . $minutes;
+        $condition->sleep_duration = $this->calculateSleepDuration($sleep_time, $wakeup_time);
 
         $condition->save();
 
@@ -176,4 +163,17 @@ class ConditionController extends Controller
         //体調一覧ページへリダイレクト
         return redirect()->route('conditions.index', ['user_id' => $user_id])->with('flash_message', '体調データを削除しました。');
     }
+
+    /**
+     * 睡眠時間を計算する関数
+     */
+    private function calculateSleepDuration($sleep_time, $wakeup_time)
+    {
+        $diffInSeconds = $sleep_time->diffInSeconds($wakeup_time);
+        $hours = floor($diffInSeconds / 3600);
+        $minutes = floor(($diffInSeconds % 3600) / 60);
+
+        return $hours . ':' . $minutes;
+    }
+
 }
