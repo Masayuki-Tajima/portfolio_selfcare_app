@@ -7,7 +7,7 @@
                     <p>{{ session('flash_message') }}</p>
                 @endif
             </div>
-            
+
             <div class="mb-20 flex w-full flex-col text-center">
                 <h1 class="title-font mb-2 text-3xl font-medium text-gray-900 sm:text-4xl">過去の体調の記録</h1>
             </div>
@@ -23,15 +23,15 @@
                                 日付
                             </th>
                             <th
-                                class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                class="whitespace-nowrap title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 良好サイン
                             </th>
                             <th
-                                class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                class="whitespace-nowrap title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 注意サイン
                             </th>
                             <th
-                                class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                class="whitespace-nowrap title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 悪化サイン
                             </th>
                             <th
