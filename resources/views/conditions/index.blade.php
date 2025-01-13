@@ -1,6 +1,13 @@
 <x-user-layout>
     <section class="body-font text-gray-600">
         <div class="container mx-auto px-5 py-24">
+            {{-- メッセージ欄 --}}
+            <div class="mb-20 flex w-full flex-col text-center text-red-500">
+                @if (session('flash_message'))
+                    <p>{{ session('flash_message') }}</p>
+                @endif
+            </div>
+            
             <div class="mb-20 flex w-full flex-col text-center">
                 <h1 class="title-font mb-2 text-3xl font-medium text-gray-900 sm:text-4xl">過去の体調の記録</h1>
             </div>
