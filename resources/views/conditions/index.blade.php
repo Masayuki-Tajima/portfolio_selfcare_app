@@ -14,7 +14,7 @@
             <button type="button"
                 class="mx-auto flex rounded border-0 bg-indigo-500 px-8 py-2 text-lg text-white hover:bg-indigo-600 focus:outline-none"
                 onclick="location.href='{{ route('conditions.create', ['user_id' => Auth::id()]) }}' ">体調を新規登録</button>
-            <div class="h-[40rem] mx-auto w-full overflow-scroll lg:w-3/4">
+            <div class="h-[40rem] mx-auto mt-8 w-full overflow-scroll lg:w-3/4">
                 <table class="whitespace-no-wrap w-full table-auto text-left">
                     <thead>
                         <tr>
