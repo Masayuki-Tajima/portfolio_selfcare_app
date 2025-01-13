@@ -147,7 +147,7 @@ class ConditionController extends Controller
         $condition->signs()->syncWithoutDetaching($request->input('bad_signs'));
 
         //体調一覧ページへリダイレクト
-        return redirect()->route('conditions.index', ['user_id' => $user_id]);
+        return redirect()->route('conditions.index', ['user_id' => $user_id])->with('flash_message', '体調データを更新しました。');
     }
 
     //体調の削除機能
