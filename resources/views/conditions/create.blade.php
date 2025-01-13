@@ -87,14 +87,14 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="w-1/3 p-2">
+                        <div class="xl:w-1/2 p-2 w-full">
                             <div class="relative">
                                 <label for="sleep_time" class="text-sm leading-7 text-gray-600">就寝時刻</label>
                                 <input type="datetime-local" id="sleep_time" name="sleep_time"
                                     class="w-full rounded border border-gray-300 bg-gray-100 bg-opacity-50 px-3 py-1 text-base leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200">
                             </div>
                         </div>
-                        <div class="w-1/3 p-2">
+                        <div class="xl:w-1/2 p-2 w-full">
                             <div class="relative">
                                 <label for="wakeup_time" class="text-sm leading-7 text-gray-600">起床時刻</label>
                                 <input type="datetime-local" id="wakeup_time" name="wakeup_time"
