@@ -15,7 +15,7 @@ use GuzzleHttp\Client;
 class ConditionController extends Controller
 {
     //ユーザーログイン後のトップページを表示
-    public function top($user_id)
+    public function top(int $user_id)
     {
         return view('conditions.top', [
             'user_id' => $user_id
@@ -23,7 +23,7 @@ class ConditionController extends Controller
     }
 
     //体調一覧の表示
-    public function index($user_id)
+    public function index(int $user_id)
     {
         $conditions = Condition::where('user_id', '=', $user_id)->with('signs')->orderBy('date', 'desc')->get();
 
@@ -33,7 +33,7 @@ class ConditionController extends Controller
     }
 
     //体調の新規登録画面表示
-    public function create($user_id)
+    public function create(int $user_id)
     {
         $signs = Auth::user()->signs->where('user_id', '=', $user_id);
 
@@ -43,7 +43,7 @@ class ConditionController extends Controller
     }
 
     //体調の新規登録機能
-    public function store(ConditionRequest $request, $user_id)
+    public function store(ConditionRequest $request, int $user_id)
     {
         //conditionテーブルへの値の挿入
         $condition = new Condition();
@@ -97,7 +97,7 @@ class ConditionController extends Controller
     }
 
     //体調編集画面の表示
-    public function edit($user_id, $condition_id)
+    public function edit(int $user_id, int $condition_id)
     {
         $condition = Condition::where('user_id', '=', $user_id)->where('id', '=', $condition_id)->with('signs')->get();
         $signs = Auth::user()->signs;
@@ -121,7 +121,7 @@ class ConditionController extends Controller
     }
 
     //体調の更新機能
-    public function update(ConditionRequest $request, $user_id, $condition_id)
+    public function update(ConditionRequest $request, int $user_id, int $condition_id)
     {
         //conditionテーブルの値を更新
         $condition = Condition::findOrFail($condition_id);
@@ -151,7 +151,7 @@ class ConditionController extends Controller
     }
 
     //体調の削除機能
-    public function destroy($user_id, $condition_id)
+    public function destroy(int $user_id, int $condition_id)
     {
         $condition = Condition::findOrFail($condition_id);
 
