@@ -14,68 +14,68 @@
             <button type="button"
                 class="mx-auto flex rounded border-0 bg-indigo-500 px-8 py-2 text-lg text-white hover:bg-indigo-600 focus:outline-none"
                 onclick="location.href='{{ route('conditions.create', ['user_id' => Auth::id()]) }}' ">体調を新規登録</button>
-            <div class="mx-auto w-full overflow-auto lg:w-2/3">
+            <div class="h-96 mx-auto w-full overflow-scroll lg:w-2/3">
                 <table class="whitespace-no-wrap w-full table-auto text-left">
                     <thead>
                         <tr>
                             <th
-                                class="title-font rounded-bl rounded-tl bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                class="sticky top-0 title-font rounded-bl rounded-tl bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 日付
                             </th>
                             <th
-                                class="whitespace-nowrap title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                class="sticky top-0 whitespace-nowrap title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 良好サイン
                             </th>
                             <th
-                                class="whitespace-nowrap title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                class="sticky top-0 whitespace-nowrap title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 注意サイン
                             </th>
                             <th
-                                class="whitespace-nowrap title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                class="sticky top-0 whitespace-nowrap title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 悪化サイン
                             </th>
                             <th
-                                class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                class="sticky top-0 title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 天気
                             </th>
                             <th
-                                class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                class="sticky top-0 title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 気温
                             </th>
                             <th
-                                class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                class="sticky top-0 title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 湿度
                             </th>
                             <th
-                                class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                class="sticky top-0 title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 就寝時刻
                             </th>
                             <th
-                                class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                class="sticky top-0 title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 起床時刻
                             </th>
                             <th
-                                class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                class="sticky top-0 title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 睡眠時間
                             </th>
                             <th
-                                class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                class="sticky top-0 title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 運動
                             </th>
                             <th
-                                class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                class="sticky top-0 title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 朝食
                             </th>
                             <th
-                                class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                class="sticky top-0 title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 昼食
                             </th>
                             <th
-                                class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                class="sticky top-0 title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 夕食
                             </th>
                             <th
-                                class="title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                class="sticky top-0 title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 コメント
                             </th>
                         </tr>
