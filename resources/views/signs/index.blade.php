@@ -21,7 +21,7 @@
                 <ul>
                     @foreach ($signs as $sign)
                         @if ($sign->sign_type == 0)
-                            <li class="px-4 py-3">
+                            <li class="flex justify-between px-4 py-3">
                                 <p class="inline">{{ $sign->sign }}</p>
                                 <form class="inline"
                                     action="{{ route('signs.destroy', ['user_id' => Auth::id(), 'sign_id' => $sign->id]) }}"
@@ -61,7 +61,7 @@
                 <ul>
                     @foreach ($signs as $sign)
                         @if ($sign->sign_type == 1)
-                            <li class="px-4 py-3">
+                            <li class="flex justify-between px-4 py-3">
                                 <p class="inline">{{ $sign->sign }}</p>
                                 <form class="inline"
                                     action="{{ route('signs.destroy', ['user_id' => Auth::id(), 'sign_id' => $sign->id]) }}"
@@ -81,7 +81,7 @@
                 <ul>
                     @foreach ($signs as $sign)
                         @if ($sign->sign_type == 2)
-                            <li class="px-4 py-3">
+                            <li class="flex justify-between px-4 py-3">
                                 <p class="inline">{{ $sign->sign }}</p>
                                 <form class="inline"
                                     action="{{ route('signs.destroy', ['user_id' => Auth::id(), 'sign_id' => $sign->id]) }}"
