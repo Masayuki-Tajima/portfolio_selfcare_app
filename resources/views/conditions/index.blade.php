@@ -2,7 +2,7 @@
     <section class="body-font text-gray-600">
         <div class="container mx-auto px-5 py-24">
             {{-- メッセージ欄 --}}
-            <div class="mb-20 flex w-full flex-col text-center text-red-500">
+            <div class="mb-8 flex w-full flex-col text-center text-red-500">
                 @if (session('flash_message'))
                     <p>{{ session('flash_message') }}</p>
                 @endif
