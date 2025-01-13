@@ -108,21 +108,21 @@
                                     class="w-full rounded border border-gray-300 bg-gray-100 bg-opacity-50 px-3 py-1 text-base leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200">
                             </div>
                         </div>
-                        <div class="w-1/3 p-2">
+                        <div class="xl:w-1/3 p-2 w-full">
                             <div class="relative">
                                 <label for="breakfast" class="text-sm leading-7 text-gray-600">朝食</label>
                                 <input type="text" id="breakfast" name="breakfast"
                                     class="w-full rounded border border-gray-300 bg-gray-100 bg-opacity-50 px-3 py-1 text-base leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200">
                             </div>
                         </div>
-                        <div class="w-1/3 p-2">
+                        <div class="xl:w-1/3 p-2 w-full">
                             <div class="relative">
                                 <label for="lunch" class="text-sm leading-7 text-gray-600">昼食</label>
                                 <input type="text" id="lunch" name="lunch"
                                     class="w-full rounded border border-gray-300 bg-gray-100 bg-opacity-50 px-3 py-1 text-base leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200">
                             </div>
                         </div>
-                        <div class="w-1/3 p-2">
+                        <div class="xl:w-1/3 p-2 w-full">
                             <div class="relative">
                                 <label for="dinner" class="text-sm leading-7 text-gray-600">夕食</label>
                                 <input type="text" id="dinner" name="dinner"
