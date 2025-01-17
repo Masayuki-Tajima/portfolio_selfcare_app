@@ -21,45 +21,43 @@
                         <img alt="content" class="h-full w-full object-cover object-center"
                             src="https://dummyimage.com/1203x503">
                     </div>
-                    <h2 class="title-font mt-5 text-xl font-medium text-gray-900">Shooting Stars</h2>
-                    <p class="mt-2 text-base leading-relaxed">Swag shoivdigoitch literally meditation subway tile tumblr
-                        cold-pressed. Gastropub street art beard dreamcatcher neutra, ethical XOXO lumbersexual.</p>
-                    <a class="mt-3 inline-flex items-center text-indigo-500">Learn More
+                    <h2 class="title-font mt-5 text-xl font-medium text-gray-900">体調不良を未然に防止</h2>
+                    <p class="mt-2 text-base leading-relaxed">日々の体調と気象データを記録することで体調悪化のサインを発見。<br>
+                        体調が崩れる前に気づき、対策できるようになります。</p>
+                    {{-- <a class="mt-3 inline-flex items-center text-indigo-500">Learn More
                         <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                             stroke-width="2" class="ml-2 h-4 w-4" viewBox="0 0 24 24">
                             <path d="M5 12h14M12 5l7 7-7 7"></path>
                         </svg>
-                    </a>
+                    </a> --}}
                 </div>
                 <div class="mb-6 p-4 sm:mb-0 md:w-1/3">
                     <div class="h-64 overflow-hidden rounded-lg">
                         <img alt="content" class="h-full w-full object-cover object-center"
                             src="https://dummyimage.com/1204x504">
                     </div>
-                    <h2 class="title-font mt-5 text-xl font-medium text-gray-900">The Catalyzer</h2>
-                    <p class="mt-2 text-base leading-relaxed">Swag shoivdigoitch literally meditation subway tile tumblr
-                        cold-pressed. Gastropub street art beard dreamcatcher neutra, ethical XOXO lumbersexual.</p>
-                    <a class="mt-3 inline-flex items-center text-indigo-500">Learn More
+                    <h2 class="title-font mt-5 text-xl font-medium text-gray-900">シンプルで使いやすい</h2>
+                    <p class="mt-2 text-base leading-relaxed">広告や余計な機能がないシンプルな設計。すぐに使い始められます。</p>
+                    {{-- <a class="mt-3 inline-flex items-center text-indigo-500">Learn More
                         <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                             stroke-width="2" class="ml-2 h-4 w-4" viewBox="0 0 24 24">
                             <path d="M5 12h14M12 5l7 7-7 7"></path>
                         </svg>
-                    </a>
+                    </a> --}}
                 </div>
                 <div class="mb-6 p-4 sm:mb-0 md:w-1/3">
                     <div class="h-64 overflow-hidden rounded-lg">
                         <img alt="content" class="h-full w-full object-cover object-center"
                             src="https://dummyimage.com/1205x505">
                     </div>
-                    <h2 class="title-font mt-5 text-xl font-medium text-gray-900">The 400 Blows</h2>
-                    <p class="mt-2 text-base leading-relaxed">Swag shoivdigoitch literally meditation subway tile tumblr
-                        cold-pressed. Gastropub street art beard dreamcatcher neutra, ethical XOXO lumbersexual.</p>
-                    <a class="mt-3 inline-flex items-center text-indigo-500">Learn More
+                    <h2 class="title-font mt-5 text-xl font-medium text-gray-900">モチベーションが続く</h2>
+                    <p class="mt-2 text-base leading-relaxed">AIによるコメント機能付き。反応が返ってくることで継続しやすくなります。</p>
+                    {{-- <a class="mt-3 inline-flex items-center text-indigo-500">Learn More
                         <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                             stroke-width="2" class="ml-2 h-4 w-4" viewBox="0 0 24 24">
                             <path d="M5 12h14M12 5l7 7-7 7"></path>
                         </svg>
-                    </a>
+                    </a> --}}
                 </div>
             </div>
             <div class="flex flex-wrap -m-4">
