@@ -19,7 +19,7 @@
                 <div class="mb-6 p-4 sm:mb-0 md:w-1/3">
                     <div class="h-64 overflow-hidden rounded-lg">
                         <img alt="content" class="h-full w-full object-cover object-center"
-                            src="https://dummyimage.com/1203x503">
+                            src="{{ asset('img/exclamation_mark.jpg') }}">
                     </div>
                     <h2 class="title-font mt-5 text-xl font-medium text-gray-900">体調不良を未然に防止</h2>
                     <p class="mt-2 text-base leading-relaxed">日々の体調と気象データを記録することで体調悪化のサインを発見。<br>
