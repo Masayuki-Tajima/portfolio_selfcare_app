@@ -2,7 +2,7 @@
     <section class="body-font text-gray-600">
         <div class="container mx-auto px-5 py-24">
             <div class="flex flex-col text-center w-full mb-20">
-                <h2 class="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">ROOF PARTY POLAROID</h2>
+                <h2 class="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">Health Management App</h2>
                 <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">トップページ</h1>
                 <p class="lg:w-2/3 mx-auto leading-relaxed text-base">ようこそ、体調管理アプリへ！</p>
             </div>
@@ -34,7 +34,7 @@
                 <div class="mb-6 p-4 sm:mb-0 md:w-1/3">
                     <div class="h-64 overflow-hidden rounded-lg">
                         <img alt="content" class="h-full w-full object-cover object-center"
-                            src="https://dummyimage.com/1204x504">
+                            src="{{ asset('img/graph.jpg') }}">
                     </div>
                     <h2 class="title-font mt-5 text-xl font-medium text-gray-900">シンプルで使いやすい</h2>
                     <p class="mt-2 text-base leading-relaxed">広告や余計な機能がないシンプルな設計。すぐに使い始められます。</p>
@@ -48,7 +48,7 @@
                 <div class="mb-6 p-4 sm:mb-0 md:w-1/3">
                     <div class="h-64 overflow-hidden rounded-lg">
                         <img alt="content" class="h-full w-full object-cover object-center"
-                            src="https://dummyimage.com/1205x505">
+                            src="{{ asset('img/businessperson_spreadhands.jpg') }}">
                     </div>
                     <h2 class="title-font mt-5 text-xl font-medium text-gray-900">モチベーションが続く</h2>
                     <p class="mt-2 text-base leading-relaxed">AIによるコメント機能付き。反応が返ってくることで継続しやすくなります。</p>
