@@ -1,4 +1,4 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<!-- <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
 <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
@@ -63,4 +63,31 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT). -->
+
+
+# 体調管理アプリ
+
+## 機能
+- 認証
+    - ログイン/ログアウト
+    - ゲストユーザーログイン機能
+
+- 体調データ管理
+
+## 使用技術
+- バックエンド
+    - Laravel Sail
+        - PHP(8.4.1)
+        - Laravel(11.34.2)
+        - Laravel Breeze
+        - MySQL(8.0.32)
+    - Docker(27.3.1)
+
+- フロントエンド
+
+## ER図
+
+## AWS構成図
+
+## テーブル定義
