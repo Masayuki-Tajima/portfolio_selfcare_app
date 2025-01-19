@@ -77,8 +77,12 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## 使用技術
 - バックエンド
-    - PHP
-    - Laravel
+    - Laravel Sail
+        - PHP(8.4.1)
+        - Laravel(11.34.2)
+        - Laravel Breeze
+        - MySQL(8.0.32)
+    - Docker(27.3.1)
 
 - フロントエンド
 
