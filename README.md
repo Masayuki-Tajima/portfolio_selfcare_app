@@ -66,24 +66,24 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT). -->
 
 
-#体調管理アプリ
+# 体調管理アプリ
 
-##機能
+## 機能
 - 認証
     - ログイン/ログアウト
     - ゲストユーザーログイン機能
 
 - 体調データ管理
 
-##使用技術
+## 使用技術
 - バックエンド
     - PHP
     - Laravel
 
 - フロントエンド
 
-##ER図
+## ER図
 
-##AWS構成図
+## AWS構成図
 
-##テーブル定義
+## テーブル定義
