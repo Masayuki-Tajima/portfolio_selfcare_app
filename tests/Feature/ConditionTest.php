@@ -51,7 +51,7 @@ class ConditionTest extends TestCase
         //体調のデータをPOSTメソッドで送信
         $condition = [
             'user_id' => 1,
-            'date' => '2024-01-08',
+            'date' => now()->format('Y-m-d'),
             'sleep_time' => '2024-01-08 00:30:00',
             'wakeup_time' => '2024-01-08 08:30:00',
             'exercise' => 'スクワット10回',
