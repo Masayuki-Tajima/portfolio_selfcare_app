@@ -41,14 +41,14 @@
                 </div>
 
                 <div class="mt-8 text-center">
+                    <x-primary-button class="mb-4">
+                        {{ __('Register') }}
+                    </x-primary-button>
+
                     <a class="block rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                         href="{{ route('login') }}">
                         {{ __('Already registered?') }}
                     </a>
-
-                    <x-primary-button class="ms-4">
-                        {{ __('Register') }}
-                    </x-primary-button>
                 </div>
             </form>
         </div>
