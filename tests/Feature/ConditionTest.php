@@ -20,12 +20,7 @@ class ConditionTest extends TestCase
     public function test_the_condition_create_page_display_successful()
     {
         //ユーザーデータの用意
-        $user = new User();
-        $user->id = 1;
-        $user->name = 'Yamada';
-        $user->email = 'yamada_test@example.com';
-        $user->password = 'passya123';
-        $user->save();
+        $user = User::factory()->create();
 
         $response = $this->actingAs($user)->get(route('conditions.create', ['user_id' => $user->id]));
 
@@ -41,12 +36,7 @@ class ConditionTest extends TestCase
         Schema::disableForeignKeyConstraints();
 
         //ユーザーデータの用意
-        $user = new User();
-        $user->id = 1;
-        $user->name = 'Yamada';
-        $user->email = 'yamada_test@example.com';
-        $user->password = 'passya123';
-        $user->save();
+        $user = User::factory()->create();
 
         //体調のデータをPOSTメソッドで送信
         $condition = [
@@ -79,12 +69,7 @@ class ConditionTest extends TestCase
         Schema::disableForeignKeyConstraints();
 
         //ユーザーデータの用意
-        $user = new User();
-        $user->id = 1;
-        $user->name = 'Yamada';
-        $user->email = 'yamada_test@example.com';
-        $user->password = 'passya123';
-        $user->save();
+        $user = User::factory()->create();
 
         //体調データの用意
         $condition = new Condition();
