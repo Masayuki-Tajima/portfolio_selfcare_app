@@ -15,17 +15,15 @@ class ConditionSeeder extends Seeder
     {
         DB::table('conditions')->insert([
             'user_id' => 1,
-            'date' => '2024-12-23',
-            'sleep_time' => '2024-12-22 00:30:00',
-            'wakeup_time' => '2024-12-23 07:30:00',
-            'sleep_duration' => '07:00:00',
-            'exercise' => '腹筋10回',
-            'breakfast' => 'ご飯、味噌汁、玉子焼き',
-            'lunch' => '焼きそば',
-            'dinner' => 'サバの味噌煮',
-            'comment' => '一日中スッキリした気分が続いた',
-            'created_at' => '2024-12-23 21:00:00',
-            'updated_at' => '2024-12-23 21:00:00',
+            'date' => now()->format('Y-m-d'),
+            'sleep_time' => '2024-01-08 00:30:00',
+            'wakeup_time' => '2024-01-08 08:30:00',
+            'exercise' => 'スクワット10回',
+            'breakfast' => 'ヨーグルト、バナナ',
+            'lunch' => 'ラーメン',
+            'dinner' => 'ぶりの照り焼き',
+            'comment' => '一日中眠気に襲われた。',
+            'sleep_duration' => '08:00:00'
         ]);
     }
 }
