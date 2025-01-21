@@ -15,6 +15,28 @@ class SignTest extends TestCase
     use RefreshDatabase;
 
     /**
+     * 体調サインの一覧画面表示テスト
+     */
+    public function test_the_sign_index_page_can_be_rendered()
+    {
+        //外部キー制約を無効化
+        Schema::disableForeignKeyConstraints();
+
+        //ユーザーデータの用意
+        $user = User::factory()->create();
+
+        //体調サインデータの用意
+        $signs = Sign::factory()->create();
+
+        $response = $this->actingAs($user)->get(route('signs.index', ['user_id' => $user->id, 'signs' => $signs]));
+
+        $response->assertStatus(200);
+
+        //外部キー制約を有効化
+        Schema::enableForeignKeyConstraints();
+    }
+
+    /**
      * 体調サインの新規登録画面の表示テスト
      */
     public function test_sign_create_page_can_be_rendered()
