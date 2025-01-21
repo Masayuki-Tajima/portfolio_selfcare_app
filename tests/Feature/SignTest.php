@@ -53,4 +53,32 @@ class SignTest extends TestCase
         Schema::enableForeignKeyConstraints();
     }
 
+    /**
+     * 体調サインの削除機能テスト
+     */
+    public function test_sign_can_be_deleted()
+    {
+        //外部キー制約を無効化
+        Schema::disableForeignKeyConstraints();
+
+        //ユーザーデータの用意
+        $user = User::factory()->create();
+
+        //体調サインデータの用意
+        $sign = new Sign();
+        $sign->id = 1;
+        $sign->user_id = $user->id;
+        $sign->sign = '咳が出る';
+        $sign->sign_type = 1;
+        $sign->save();
+
+        $this->actingAs($user)->delete(route('signs.destroy', ['user_id' => $user->id, 'sign_id' => $sign->id]));
+
+        //保存したデータがsignsテーブルから論理除されているか検証
+        $this->assertSoftDeleted('signs', ['id' => $sign->id]);
+
+        //外部キー制約を有効化
+        Schema::enableForeignKeyConstraints();
+    }
+
 }
