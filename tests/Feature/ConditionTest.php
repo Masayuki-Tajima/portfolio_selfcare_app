@@ -8,11 +8,42 @@ use Tests\TestCase;
 use App\Models\Condition;
 use App\Models\Sign;
 use App\Models\User;
+use App\Models\Weather;
 use Illuminate\Support\Facades\Schema;
 
 class ConditionTest extends TestCase
 {
     use RefreshDatabase;
+
+    /**
+     * 体調の一覧画面表示テスト
+     */
+    public function test_the_condition_index_page_can_be_rendered()
+    {
+        //外部キー制約を無効化
+        Schema::disableForeignKeyConstraints();
+
+        //ユーザーデータの用意
+        $user = User::factory()->create();
+
+        //体調サインデータの用意
+        $sign = Sign::factory()->create();
+
+        //天気データの用意
+        $weather = Weather::factory()->create();
+
+        //体調データの用意
+        $condition = Condition::factory()->create();
+        //体調データと体調サインデータを紐づけ
+        $condition->signs()->attach(1);
+
+        $response = $this->actingAs($user)->get(route('conditions.index', ['user_id' => $user->id]));
+
+        $response->assertStatus(200);
+
+        //外部キー制約を有効化
+        Schema::enableForeignKeyConstraints();
+    }
 
     /**
      * 体調の新規登録画面の表示テスト
