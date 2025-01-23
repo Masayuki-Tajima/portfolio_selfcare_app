@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 
 class Modal extends Component
 {
@@ -10,7 +11,11 @@ class Modal extends Component
 
     public function render()
     {
-        return view('livewire.modal');
+        $signs = Auth::user()->signs;
+
+        return view('livewire.modal', [
+            'signs' => $signs
+        ]);
     }
 
     public function openModal()
