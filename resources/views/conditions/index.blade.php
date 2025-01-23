@@ -1,4 +1,5 @@
 <x-user-layout>
+    @livewire('modal')
     <section class="body-font text-gray-600">
         <div class="container mx-auto px-5 py-24">
             {{-- メッセージ欄 --}}
