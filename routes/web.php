@@ -5,6 +5,7 @@ use App\Http\Controllers\ConditionController;
 use App\Http\Controllers\SignController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\ModalController;
 
 //ログイン前のトップページ
 Route::get('/', function () {
@@ -66,3 +67,6 @@ Route::prefix('users/{user_id}/')->middleware('auth')->group(function(){
     });
 
 });
+
+//モーダルウィンドウ
+Route::get('/modal', [ModalController::class, 'modal']);
