@@ -23,12 +23,44 @@ class ConditionController extends Controller
     }
 
     //体調一覧の表示
-    public function index(int $user_id)
+    public function index(int $user_id, Request $request)
     {
-        $conditions = Condition::where('user_id', '=', $user_id)->with('signs')->orderBy('date', 'desc')->get();
+        if($request->has('good_signs') || $request->has('caution_signs') || $request->has('bad_signs')){
+            //検索フォームから体調サインが送信された場合の処理
+            if($request->input('good_signs') == null){
+                $goodSignsIds = array();
+            }else{
+                $goodSignsIds = $request->input('good_signs');
+            }
+
+            if($request->input('caution_signs') == null){
+                $cautionSignsIds = array();
+            }else{
+                $cautionSignsIds = $request->input('caution_signs');
+            }
+
+            if($request->input('bad_signs') == null){
+                $badSignsIds = array();
+            }else{
+                $badSignsIds = $request->input('bad_signs');
+            }
+
+            $searchSignsIds = array_merge($goodSignsIds, $cautionSignsIds, $badSignsIds);
+
+            $conditions = Condition::where('user_id', '=', $user_id)->with('signs')->whereHas('signs', function($query) use($searchSignsIds) {
+                $query->whereIn('signs.id', $searchSignsIds);
+            })->orderBy('conditions.date', 'desc')->get();
+        }else{
+            //すべてのデータを表示する処理
+            $conditions = Condition::where('user_id', '=', $user_id)->with('signs')->orderBy('date', 'desc')->get();
+        }
+
+        //すべての体調サイン
+        $allSigns = Auth::user()->signs;
 
         return view('conditions.index', [
             'conditions' => $conditions,
+            'allSigns' => $allSigns
         ]);
     }
 
