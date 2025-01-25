@@ -67,6 +67,3 @@ Route::prefix('users/{user_id}/')->middleware('auth')->group(function(){
     });
 
 });
-
-//モーダルウィンドウ
-Route::get('/modal', [ModalController::class, 'modal']);
