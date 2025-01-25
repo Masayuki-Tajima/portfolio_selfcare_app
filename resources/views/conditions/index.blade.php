@@ -1,5 +1,4 @@
 <x-user-layout>
-    @livewire('modal')
     <section class="body-font text-gray-600">
         <div class="container mx-auto px-5 py-24">
             {{-- メッセージ欄 --}}
@@ -12,9 +11,61 @@
             <div class="mb-20 flex w-full flex-col text-center">
                 <h1 class="title-font mb-2 text-3xl font-medium text-gray-900 sm:text-4xl">過去の体調の記録</h1>
             </div>
+
+            {{-- 検索フォーム --}}
+            <form action="{{ route('conditions.index', ['user_id' => Auth::id()]) }}" method="GET">
+                @csrf
+                <div class="mx-auto w-full overflow-auto lg:w-2/3">
+                    {{-- 体調サイン --}}
+                    <h2 class="text-2xl">良好サイン</h2>
+                    <ul>
+                        @foreach ($allSigns as $sign)
+                            @if ($sign->sign_type == 0)
+                                <li class="px-4 py-3 text-lg text-gray-900">
+                                    <input name="good_signs[]" value="{{ $sign->id }}"
+                                        type="checkbox">{{ $sign->sign }}{{ $sign->id }}
+                                </li>
+                            @endif
+                        @endforeach
+                    </ul>
+
+                    <h2 class="text-2xl">注意サイン</h2>
+                    <ul>
+                        @foreach ($allSigns as $sign)
+                            @if ($sign->sign_type == 1)
+                                <li class="px-4 py-3 text-lg text-gray-900">
+                                    <input name="caution_signs[]" value="{{ $sign->id }}"
+                                        type="checkbox">{{ $sign->sign }}{{ $sign->id }}
+                                </li>
+                            @endif
+                        @endforeach
+                    </ul>
+
+                    <h2 class="text-2xl">悪化サイン</h2>
+                    <ul>
+                        @foreach ($allSigns as $sign)
+                            @if ($sign->sign_type == 2)
+                                <li class="px-4 py-3 text-lg text-gray-900">
+                                    <input name="bad_signs[]" value="{{ $sign->id }}"
+                                        type="checkbox">{{ $sign->sign }}{{ $sign->id }}
+                                </li>
+                            @endif
+                        @endforeach
+                    </ul>
+
+                    {{-- 検索ワード --}}
+                    <input type="text" name="keyword">
+                    <input type="submit" value="検索">
+                </div>
+            </form>
+
             <button type="button"
                 class="mx-auto flex rounded border-0 bg-indigo-500 px-8 py-2 text-lg text-white hover:bg-indigo-600 focus:outline-none"
-                onclick="location.href='{{ route('conditions.create', ['user_id' => Auth::id()]) }}' ">体調を新規登録</button>
+                onclick="location.href='{{ route('conditions.create', ['user_id' => Auth::id()]) }}' ">体調を新規登録
+            </button>
+            {{-- 絞り込み検索用モーダルウィンドウ --}}
+            {{-- @livewire('modal') --}}
+
             <div class="h-[40rem] mx-auto mt-8 w-full overflow-scroll lg:w-3/4">
                 <table class="whitespace-no-wrap w-full table-auto text-left">
                     <thead>
