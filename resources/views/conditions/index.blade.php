@@ -16,7 +16,7 @@
             <form action="{{ route('conditions.index', ['user_id' => Auth::id()]) }}" method="GET">
                 @csrf
                 <div class="mx-auto p-4 w-full overflow-auto lg:w-2/3 mb-12 bg-white rounded">
-                    <details class="group mt-0 cursor-pointer hover:opacity-70 open:hover:bg-transparent open:cursor-auto open:opacity-100">
+                    <details class="group mt-0 cursor-pointer open:hover:bg-transparent open:cursor-auto open:opacity-100">
                         <summary class="text-black">絞り込み検索</summary>
 
                         {{-- 体調サイン --}}
