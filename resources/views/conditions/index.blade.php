@@ -16,46 +16,50 @@
             <form action="{{ route('conditions.index', ['user_id' => Auth::id()]) }}" method="GET">
                 @csrf
                 <div class="mx-auto p-4 w-full overflow-auto lg:w-2/3 mb-12 bg-white rounded">
-                    {{-- 体調サイン --}}
-                    <h2 class="text-2xl">良好サイン</h2>
-                    <ul>
-                        @foreach ($allSigns as $sign)
-                            @if ($sign->sign_type == 0)
-                                <li class="px-4 py-3 text-lg text-gray-900">
-                                    <input name="good_signs[]" value="{{ $sign->id }}"
-                                        type="checkbox">{{ $sign->sign }}
-                                </li>
-                            @endif
-                        @endforeach
-                    </ul>
+                    <details class="group mt-0 cursor-pointer hover:opacity-70 open:hover:bg-transparent open:cursor-auto open:opacity-100">
+                        <summary class="text-black">絞り込み検索</summary>
 
-                    <h2 class="text-2xl">注意サイン</h2>
-                    <ul>
-                        @foreach ($allSigns as $sign)
-                            @if ($sign->sign_type == 1)
-                                <li class="px-4 py-3 text-lg text-gray-900">
-                                    <input name="caution_signs[]" value="{{ $sign->id }}"
-                                        type="checkbox">{{ $sign->sign }}
-                                </li>
-                            @endif
-                        @endforeach
-                    </ul>
+                        {{-- 体調サイン --}}
+                        <h2 class="text-2xl">良好サイン</h2>
+                        <ul>
+                            @foreach ($allSigns as $sign)
+                                @if ($sign->sign_type == 0)
+                                    <li class="px-4 py-3 text-lg text-gray-900">
+                                        <input name="good_signs[]" value="{{ $sign->id }}"
+                                            type="checkbox">{{ $sign->sign }}
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
 
-                    <h2 class="text-2xl">悪化サイン</h2>
-                    <ul>
-                        @foreach ($allSigns as $sign)
-                            @if ($sign->sign_type == 2)
-                                <li class="px-4 py-3 text-lg text-gray-900">
-                                    <input name="bad_signs[]" value="{{ $sign->id }}"
-                                        type="checkbox">{{ $sign->sign }}
-                                </li>
-                            @endif
-                        @endforeach
-                    </ul>
+                        <h2 class="text-2xl">注意サイン</h2>
+                        <ul>
+                            @foreach ($allSigns as $sign)
+                                @if ($sign->sign_type == 1)
+                                    <li class="px-4 py-3 text-lg text-gray-900">
+                                        <input name="caution_signs[]" value="{{ $sign->id }}"
+                                            type="checkbox">{{ $sign->sign }}
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
 
-                    <input
-                        class="rounded border-0 bg-gray-300 px-8 py-2 text-lg text-black hover:bg-gray-400 focus:outline-none"
-                        type="submit" value="検索">
+                        <h2 class="text-2xl">悪化サイン</h2>
+                        <ul>
+                            @foreach ($allSigns as $sign)
+                                @if ($sign->sign_type == 2)
+                                    <li class="px-4 py-3 text-lg text-gray-900">
+                                        <input name="bad_signs[]" value="{{ $sign->id }}"
+                                            type="checkbox">{{ $sign->sign }}
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+
+                        <input
+                            class="rounded border-0 bg-gray-300 px-8 py-2 text-lg text-black hover:bg-gray-400 focus:outline-none"
+                            type="submit" value="検索">
+                    </details>
                 </div>
             </form>
 
