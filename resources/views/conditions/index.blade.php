@@ -15,7 +15,7 @@
             {{-- 検索フォーム --}}
             <form action="{{ route('conditions.index', ['user_id' => Auth::id()]) }}" method="GET">
                 @csrf
-                <div class="mx-auto w-full overflow-auto lg:w-2/3 mb-12">
+                <div class="mx-auto p-4 w-full overflow-auto lg:w-2/3 mb-12 bg-white rounded">
                     {{-- 体調サイン --}}
                     <h2 class="text-2xl">良好サイン</h2>
                     <ul>
@@ -66,7 +66,7 @@
             {{-- 絞り込み検索用モーダルウィンドウ --}}
             {{-- @livewire('modal') --}}
 
-            <div class="mx-auto mt-8 h-[40rem] w-full overflow-scroll lg:w-3/4">
+            <div class="mx-auto mt-12 h-[40rem] w-full overflow-scroll lg:w-3/4">
                 <table class="whitespace-no-wrap w-full table-auto text-left">
                     <thead>
                         <tr>
