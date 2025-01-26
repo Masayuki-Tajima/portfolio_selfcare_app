@@ -15,7 +15,7 @@
             {{-- 検索フォーム --}}
             <form action="{{ route('conditions.index', ['user_id' => Auth::id()]) }}" method="GET">
                 @csrf
-                <div class="mx-auto w-full overflow-auto lg:w-2/3">
+                <div class="mx-auto w-full overflow-auto lg:w-2/3 mb-12">
                     {{-- 体調サイン --}}
                     <h2 class="text-2xl">良好サイン</h2>
                     <ul>
@@ -23,7 +23,7 @@
                             @if ($sign->sign_type == 0)
                                 <li class="px-4 py-3 text-lg text-gray-900">
                                     <input name="good_signs[]" value="{{ $sign->id }}"
-                                        type="checkbox">{{ $sign->sign }}{{ $sign->id }}
+                                        type="checkbox">{{ $sign->sign }}
                                 </li>
                             @endif
                         @endforeach
@@ -35,7 +35,7 @@
                             @if ($sign->sign_type == 1)
                                 <li class="px-4 py-3 text-lg text-gray-900">
                                     <input name="caution_signs[]" value="{{ $sign->id }}"
-                                        type="checkbox">{{ $sign->sign }}{{ $sign->id }}
+                                        type="checkbox">{{ $sign->sign }}
                                 </li>
                             @endif
                         @endforeach
@@ -47,15 +47,15 @@
                             @if ($sign->sign_type == 2)
                                 <li class="px-4 py-3 text-lg text-gray-900">
                                     <input name="bad_signs[]" value="{{ $sign->id }}"
-                                        type="checkbox">{{ $sign->sign }}{{ $sign->id }}
+                                        type="checkbox">{{ $sign->sign }}
                                 </li>
                             @endif
                         @endforeach
                     </ul>
 
-                    {{-- 検索ワード --}}
-                    <input type="text" name="keyword">
-                    <input type="submit" value="検索">
+                    <input
+                        class="rounded border-0 bg-gray-300 px-8 py-2 text-lg text-black hover:bg-gray-400 focus:outline-none"
+                        type="submit" value="検索">
                 </div>
             </form>
 
@@ -66,68 +66,68 @@
             {{-- 絞り込み検索用モーダルウィンドウ --}}
             {{-- @livewire('modal') --}}
 
-            <div class="h-[40rem] mx-auto mt-8 w-full overflow-scroll lg:w-3/4">
+            <div class="mx-auto mt-8 h-[40rem] w-full overflow-scroll lg:w-3/4">
                 <table class="whitespace-no-wrap w-full table-auto text-left">
                     <thead>
                         <tr>
                             <th
-                                class="sticky top-0 title-font rounded-bl rounded-tl bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                class="title-font sticky top-0 rounded-bl rounded-tl bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 日付
                             </th>
                             <th
-                                class="sticky top-0 whitespace-nowrap title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                class="title-font sticky top-0 whitespace-nowrap bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 良好サイン
                             </th>
                             <th
-                                class="sticky top-0 whitespace-nowrap title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                class="title-font sticky top-0 whitespace-nowrap bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 注意サイン
                             </th>
                             <th
-                                class="sticky top-0 whitespace-nowrap title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                class="title-font sticky top-0 whitespace-nowrap bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 悪化サイン
                             </th>
                             <th
-                                class="sticky top-0 title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                class="title-font sticky top-0 bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 天気
                             </th>
                             <th
-                                class="sticky top-0 title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                class="title-font sticky top-0 bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 気温
                             </th>
                             <th
-                                class="sticky top-0 title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                class="title-font sticky top-0 bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 湿度
                             </th>
                             <th
-                                class="sticky top-0 title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                class="title-font sticky top-0 bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 就寝時刻
                             </th>
                             <th
-                                class="sticky top-0 title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                class="title-font sticky top-0 bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 起床時刻
                             </th>
                             <th
-                                class="sticky top-0 title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                class="title-font sticky top-0 bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 睡眠時間
                             </th>
                             <th
-                                class="sticky top-0 title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                class="title-font sticky top-0 bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 運動
                             </th>
                             <th
-                                class="sticky top-0 title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                class="title-font sticky top-0 bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 朝食
                             </th>
                             <th
-                                class="sticky top-0 title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                class="title-font sticky top-0 bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 昼食
                             </th>
                             <th
-                                class="sticky top-0 title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                class="title-font sticky top-0 bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 夕食
                             </th>
                             <th
-                                class="sticky top-0 title-font bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
+                                class="title-font sticky top-0 bg-gray-100 px-4 py-3 text-sm font-medium tracking-wider text-gray-900">
                                 コメント
                             </th>
                         </tr>
@@ -182,7 +182,9 @@
                                     </button>
                                 </td>
                                 <td>
-                                    <form action="{{ route('conditions.destroy', ['user_id' => Auth::id(), 'condition_id' => $condition->id]) }}" method="POST" onsubmit="return confirm('本当に削除してもよろしいですか？');">
+                                    <form
+                                        action="{{ route('conditions.destroy', ['user_id' => Auth::id(), 'condition_id' => $condition->id]) }}"
+                                        method="POST" onsubmit="return confirm('本当に削除してもよろしいですか？');">
                                         @csrf
                                         @method('DELETE')
                                         <button
