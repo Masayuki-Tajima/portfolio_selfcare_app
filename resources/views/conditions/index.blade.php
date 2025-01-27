@@ -8,6 +8,14 @@
                 @endif
             </div>
 
+            {{-- chatGPTによる返信コメント --}}
+            @if (session('responseMessage'))
+                <div class="mb-8 h-24 flex w-full flex-col text-left text-black border bg-white">
+                        <h2>chatGPTからのコメント</h2>
+                        <p>{{ session('responseMessage') }}</p>
+                </div>
+            @endif
+
             <div class="mb-20 flex w-full flex-col text-center">
                 <h1 class="title-font mb-2 text-3xl font-medium text-gray-900 sm:text-4xl">過去の体調の記録</h1>
             </div>
