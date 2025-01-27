@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Models\Weather;
 use Carbon\Carbon;
 use GuzzleHttp\Client;
+use OpenAI\Laravel\Facades\OpenAI;
 
 class ConditionController extends Controller
 {
@@ -121,11 +122,16 @@ class ConditionController extends Controller
         $weather->weather = $weather_data['weather'][0]['description'];
         $weather->temperature = $weather_data['main']['temp'];
         $weather->humidity = $weather_data['main']['humidity'];
-
         $weather->save();
 
+        //chatGPTと接続し、返信コメントを受け取る
+        $inputText=$condition->comment;
+        if($inputText!=null) {
+            $responseText = $this->generateResponse($inputText);
+        }
+
         //体調一覧ページへリダイレクト
-        return redirect()->route('conditions.index', ['user_id' => $user_id]);
+        return redirect()->route('conditions.index', ['user_id' => $user_id])->with('responseMessage', $responseText);
     }
 
     //体調編集画面の表示
@@ -206,6 +212,20 @@ class ConditionController extends Controller
         $minutes = floor(($diffInSeconds % 3600) / 60);
 
         return $hours . ':' . $minutes;
+    }
+
+    /**
+     * chatGPTから回答を得て返す関数
+     */
+    private function generateResponse($inputText)
+    {
+        $result = OpenAI::completions()->create([
+            'model' => 'gpt-3.5-turbo-instruct',
+            'prompt' => '今日の体調を教えます。'.$inputText.'励ます言葉を5文以内で教えてください。',
+            'temperature' => 0.8,
+            'max_tokens' => 150,
+        ]);
+        return $result['choices'][0]['text'];
     }
 
 }
