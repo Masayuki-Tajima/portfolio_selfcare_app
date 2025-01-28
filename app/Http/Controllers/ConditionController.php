@@ -131,7 +131,7 @@ class ConditionController extends Controller
         }
 
         //体調一覧ページへリダイレクト
-        return redirect()->route('conditions.index', ['user_id' => $user_id])->with('responseMessage', $responseText);
+        return redirect()->route('conditions.index', ['user_id' => $user_id])->with('responseMessage', $responseText)->with('flash_message', '体調データを新規に作成しました。');
     }
 
     //体調編集画面の表示
