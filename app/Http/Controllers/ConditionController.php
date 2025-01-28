@@ -219,13 +219,15 @@ class ConditionController extends Controller
      */
     private function generateResponse($inputText)
     {
-        $result = OpenAI::completions()->create([
-            'model' => 'gpt-3.5-turbo-instruct',
-            'prompt' => '今日の体調を教えます。'.$inputText.'励ます言葉を5文以内で教えてください。',
+        $result = OpenAI::chat()->create([
+            'model' => 'gpt-3.5-turbo-0125',
+            'messages' => [
+                ['role' => 'user', 'content' => '今日の体調を教えます。'.$inputText.'励ます言葉を5文以内で教えてください。']
+            ],
             'temperature' => 0.8,
-            'max_tokens' => 100,
+            'max_tokens' => 150,
         ]);
-        return $result['choices'][0]['text'];
+        return $result['choices'][0]['message']['content'];
     }
 
 }
