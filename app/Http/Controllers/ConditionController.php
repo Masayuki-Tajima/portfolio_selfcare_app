@@ -223,7 +223,7 @@ class ConditionController extends Controller
             'model' => 'gpt-3.5-turbo-instruct',
             'prompt' => '今日の体調を教えます。'.$inputText.'励ます言葉を5文以内で教えてください。',
             'temperature' => 0.8,
-            'max_tokens' => 150,
+            'max_tokens' => 100,
         ]);
         return $result['choices'][0]['text'];
     }
