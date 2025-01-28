@@ -1,12 +1,20 @@
 <x-user-layout>
     <section class="body-font text-gray-600">
         <div class="container mx-auto px-5 py-24">
-            {{-- メッセージ欄 --}}
-            <div class="mb-8 flex w-full flex-col text-center text-red-500">
+            {{-- フラッシュメッセージ --}}
+            <div class="mb-4 flex w-full flex-col text-left text-red-500">
                 @if (session('flash_message'))
                     <p>{{ session('flash_message') }}</p>
                 @endif
             </div>
+
+            {{-- chatGPTによる返信コメント --}}
+            @if (session('responseMessage'))
+                <div class="mb-8 h-24 flex w-full flex-col text-left text-black border bg-white">
+                        <h2>chatGPTからのコメント</h2>
+                        <p>{{ session('responseMessage') }}</p>
+                </div>
+            @endif
 
             <div class="mb-20 flex w-full flex-col text-center">
                 <h1 class="title-font mb-2 text-3xl font-medium text-gray-900 sm:text-4xl">過去の体調の記録</h1>
